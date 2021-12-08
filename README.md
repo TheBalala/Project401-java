@@ -24,7 +24,7 @@
 
 ### - Description
 
-A web application that manages board games events.
+
 
 &nbsp;
 
