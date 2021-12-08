@@ -1,7 +1,7 @@
 # Overview
 
 ### - Project name
-
+Sa3ed
 
 
 &nbsp;
@@ -24,7 +24,7 @@
 
 ### - Description
 
-
+Application to help local community to contact with authorities about the local problem.
 
 &nbsp;
 
