@@ -22,64 +22,57 @@
         android:id="@+id/usernamesignum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="296dp"
         android:layout_marginBottom="32dp"
         android:ems="10"
-        android:fontFamily="sans-serif-smallcaps"
         android:hint="user name"
+
+
         android:inputType="textPersonName"
 
-
-        
-
         app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress"
-
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/passwordsignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="128dp"
+        android:layout_marginBottom="84dp"
         android:ems="10"
-        android:fontFamily="sans-serif-smallcaps"
         android:hint="password"
 
         android:inputType="textPassword"
 
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/emailsugnup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:ems="10"
+        android:layout_marginTop="360dp"
 
-        android:fontFamily="sans-serif-smallcaps"
+        android:ems="10"
         android:hint="email"
+
+
         android:inputType="textEmailAddress"
 
-
-
-
-
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword2"
-
+        app:layout_constraintBottom_toTopOf="@+id/passwordsignup"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="332dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif-smallcaps"
         android:text="create your account here: "
         android:textColor="#ffff"
         android:textSize="20sp"

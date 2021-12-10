@@ -73,7 +73,6 @@ Handler handler;
                             System.out.println("Roleuserrrrrrrrrr "+userForAuth.getAuth());
 
                         }
-
                         return false;
                     }
                 });
@@ -94,10 +93,6 @@ Handler handler;
                             },
                             error -> Log.e("MyAmplifyApp", "Query failure", error)
                     );
-
-
-
-
                 },
                 error -> Log.e("is sucess", "signIn: failed" + error.toString()));
     }

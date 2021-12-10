@@ -1,16 +1,18 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/LTUC/Desktop/project/Project401-java/app/src/main/res/drawable/roundedbutton.xml" value="0.2703125" />
+        <entry key="..\:/Users/LTUC/Desktop/project/Project401-java/app/src/main/res/layout/activity_login.xml" value="0.176" />
+        <entry key="..\:/Users/LTUC/Desktop/project/Project401-java/app/src/main/res/layout/activity_sign_up.xml" value="0.176" />
+        <entry key="..\:/Users/STUDENT/Desktop/final/Project401-java/app/src/main/res/layout/activity_city.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/STUDENT/Desktop/final/Project401-java/app/src/main/res/layout/activity_login.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/STUDENT/Desktop/final/Project401-java/app/src/main/res/layout/activity_main.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/STUDENT/Desktop/final/Project401-java/app/src/main/res/layout/activity_sign_up.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/STUDENT/Desktop/final/Project401-java/app/src/main/res/layout/activity_verification.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/user/Desktop/project401/Project401-java/app/src/main/res/layout/activity_login.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/user/Desktop/project401/Project401-java/app/src/main/res/layout/activity_sign_up.xml" value="0.25416666666666665" />
-        <entry key="app/src/main/res/layout/activity_admin.xml" value="0.10099186160514097" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.2022039750933558" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.14907407407407408" />
-        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_verification.xml" value="0.2888867246732248" />
       </map>
     </option>
   </component>
@@ -20,5 +22,4 @@
   <component name="ProjectType">
     <option name="id" value="Android" />
   </component>
-
 </project>
