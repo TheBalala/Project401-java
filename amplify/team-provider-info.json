@@ -1,0 +1,20 @@
+{
+  "finalpro": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-finalproject-finalpro-153005-authRole",
+      "UnauthRoleArn": "arn:aws:iam::034892735905:role/amplify-finalproject-finalpro-153005-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::034892735905:role/amplify-finalproject-finalpro-153005-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-finalproject-finalpro-153005-deployment",
+      "UnauthRoleName": "amplify-finalproject-finalpro-153005-unauthRole",
+      "StackName": "amplify-finalproject-finalpro-153005",
+      "StackId": "arn:aws:cloudformation:us-east-1:034892735905:stack/amplify-finalproject-finalpro-153005/4cc73f20-59bd-11ec-b6fa-0a991d6cde85",
+      "AmplifyAppId": "d3h16hrlphsoxk"
+    },
+    "categories": {
+      "auth": {
+        "finalproject7dade171": {}
+      }
+    }
+  }
+}

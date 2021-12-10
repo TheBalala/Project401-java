@@ -5,6 +5,11 @@
       <map>
         <entry key="..\:/Users/user/Desktop/project401/Project401-java/app/src/main/res/layout/activity_login.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/user/Desktop/project401/Project401-java/app/src/main/res/layout/activity_sign_up.xml" value="0.25416666666666665" />
+        <entry key="app/src/main/res/layout/activity_admin.xml" value="0.10099186160514097" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.2022039750933558" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.14907407407407408" />
+        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_verification.xml" value="0.2888867246732248" />
       </map>
     </option>
   </component>
