@@ -21,6 +21,7 @@ Button logOut;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         logOut = findViewById(R.id.logoutuser);
 
@@ -55,6 +56,7 @@ Button logOut;
                startActivity(intent);
             }
         });
+
     }
 
 
