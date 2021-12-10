@@ -45,7 +45,7 @@
         android:hint="password"
 
         android:inputType="textPassword"
-        android:hint="Password"
+
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
@@ -62,7 +62,7 @@
         android:hint="email"
         android:inputType="textEmailAddress"
 
-        android:hint="Email"
+
 
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -92,7 +92,6 @@
         android:text="Sign Up"
         android:background = "@drawable/roundedbutton"
         android:textStyle="bold"
-        android:Color="#FF3700B3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:fontFamily="sans-serif-smallcaps"
