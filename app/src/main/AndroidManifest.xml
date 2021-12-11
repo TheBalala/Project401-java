@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project401java">
         <activity
+            android:name=".ComplainForm"
+            android:exported="false" />
+        <activity
             android:name=".Category"
             android:exported="true" />
         <activity
