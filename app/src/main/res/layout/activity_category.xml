@@ -36,6 +36,9 @@
             android:layout_height="190dp">
 
             <RelativeLayout
+
+                android:id="@+id/electric"
+                android:transitionName="electric"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_alignParentStart="true"
@@ -91,6 +94,9 @@
             android:layout_height="190dp">
 
             <RelativeLayout
+                android:id="@+id/water"
+                android:transitionName="water"
+
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_alignParentStart="true"
@@ -146,6 +152,9 @@
             android:layout_height="190dp">
 
             <RelativeLayout
+                android:id="@+id/street"
+                android:transitionName="street"
+
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_alignParentStart="true"
@@ -201,6 +210,9 @@
             android:layout_height="190dp">
 
             <RelativeLayout
+                android:id="@+id/others"
+                android:transitionName="others"
+
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_alignParentStart="true"

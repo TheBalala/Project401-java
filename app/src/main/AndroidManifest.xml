@@ -2,8 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.project401_java">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <queries>
         <intent>
             <action android:name="android.intent.action.VIEW" />
@@ -23,28 +25,31 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project401java">
         <activity
+            android:name=".Complain"
+            android:exported="true" />
+        <activity
             android:name=".Admin"
             android:exported="true" />
         <activity
             android:name=".VerificationActivity"
             android:exported="true"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".Category"
             android:exported="true"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".City"
             android:exported="true"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".SignUp"
             android:exported="true"
-            android:parentActivityName=".Login"/>
+            android:parentActivityName=".Login" />
         <activity
             android:name=".Login"
             android:exported="true"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -68,6 +73,5 @@
             </intent-filter>
         </activity>
     </application>
-
 
 </manifest>

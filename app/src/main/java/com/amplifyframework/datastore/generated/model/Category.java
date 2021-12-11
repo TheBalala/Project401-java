@@ -1,6 +1,7 @@
 package com.amplifyframework.datastore.generated.model;
 
 import com.amplifyframework.core.model.annotations.HasMany;
+import com.amplifyframework.core.model.annotations.BelongsTo;
 import com.amplifyframework.core.model.temporal.Temporal;
 
 import java.util.List;
@@ -17,45 +18,33 @@ import com.amplifyframework.core.model.query.predicate.QueryField;
 
 import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 
-/** This is an auto generated class representing the User type in your schema. */
+/** This is an auto generated class representing the Category type in your schema. */
 @SuppressWarnings("all")
-@ModelConfig(pluralName = "Users")
-public final class User implements Model {
-  public static final QueryField ID = field("User", "id");
-  public static final QueryField USERNAME = field("User", "username");
-  public static final QueryField EMAIL = field("User", "email");
-  public static final QueryField PASSWORD = field("User", "password");
-  public static final QueryField AUTH = field("User", "auth");
+@ModelConfig(pluralName = "Categories")
+public final class Category implements Model {
+  public static final QueryField ID = field("Category", "id");
+  public static final QueryField NAME = field("Category", "name");
+  public static final QueryField CITY = field("Category", "categoryCityId");
   private final @ModelField(targetType="ID", isRequired = true) String id;
-  private final @ModelField(targetType="String", isRequired = true) String username;
-  private final @ModelField(targetType="String") String email;
-  private final @ModelField(targetType="String") String password;
-  private final @ModelField(targetType="String") String auth;
-  private final @ModelField(targetType="Complain") @HasMany(associatedWith = "User", type = Complain.class) List<Complain> Complain = null;
+  private final @ModelField(targetType="String", isRequired = true) String name;
+  private final @ModelField(targetType="Complain") @HasMany(associatedWith = "Category", type = Complain.class) List<Complain> Complain = null;
+  private final @ModelField(targetType="City") @BelongsTo(targetName = "categoryCityId", type = City.class) City City;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   public String getId() {
       return id;
   }
   
-  public String getUsername() {
-      return username;
-  }
-  
-  public String getEmail() {
-      return email;
-  }
-  
-  public String getPassword() {
-      return password;
-  }
-  
-  public String getAuth() {
-      return auth;
+  public String getName() {
+      return name;
   }
   
   public List<Complain> getComplain() {
       return Complain;
+  }
+  
+  public City getCity() {
+      return City;
   }
   
   public Temporal.DateTime getCreatedAt() {
@@ -66,12 +55,10 @@ public final class User implements Model {
       return updatedAt;
   }
   
-  private User(String id, String username, String email, String password, String auth) {
+  private Category(String id, String name, City City) {
     this.id = id;
-    this.username = username;
-    this.email = email;
-    this.password = password;
-    this.auth = auth;
+    this.name = name;
+    this.City = City;
   }
   
   @Override
@@ -81,14 +68,12 @@ public final class User implements Model {
       } else if(obj == null || getClass() != obj.getClass()) {
         return false;
       } else {
-      User user = (User) obj;
-      return ObjectsCompat.equals(getId(), user.getId()) &&
-              ObjectsCompat.equals(getUsername(), user.getUsername()) &&
-              ObjectsCompat.equals(getEmail(), user.getEmail()) &&
-              ObjectsCompat.equals(getPassword(), user.getPassword()) &&
-              ObjectsCompat.equals(getAuth(), user.getAuth()) &&
-              ObjectsCompat.equals(getCreatedAt(), user.getCreatedAt()) &&
-              ObjectsCompat.equals(getUpdatedAt(), user.getUpdatedAt());
+      Category category = (Category) obj;
+      return ObjectsCompat.equals(getId(), category.getId()) &&
+              ObjectsCompat.equals(getName(), category.getName()) &&
+              ObjectsCompat.equals(getCity(), category.getCity()) &&
+              ObjectsCompat.equals(getCreatedAt(), category.getCreatedAt()) &&
+              ObjectsCompat.equals(getUpdatedAt(), category.getUpdatedAt());
       }
   }
   
@@ -96,10 +81,8 @@ public final class User implements Model {
    public int hashCode() {
     return new StringBuilder()
       .append(getId())
-      .append(getUsername())
-      .append(getEmail())
-      .append(getPassword())
-      .append(getAuth())
+      .append(getName())
+      .append(getCity())
       .append(getCreatedAt())
       .append(getUpdatedAt())
       .toString()
@@ -109,19 +92,17 @@ public final class User implements Model {
   @Override
    public String toString() {
     return new StringBuilder()
-      .append("User {")
+      .append("Category {")
       .append("id=" + String.valueOf(getId()) + ", ")
-      .append("username=" + String.valueOf(getUsername()) + ", ")
-      .append("email=" + String.valueOf(getEmail()) + ", ")
-      .append("password=" + String.valueOf(getPassword()) + ", ")
-      .append("auth=" + String.valueOf(getAuth()) + ", ")
+      .append("name=" + String.valueOf(getName()) + ", ")
+      .append("City=" + String.valueOf(getCity()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
       .append("}")
       .toString();
   }
   
-  public static UsernameStep builder() {
+  public static NameStep builder() {
       return new Builder();
   }
   
@@ -134,7 +115,7 @@ public final class User implements Model {
    * @return an instance of this model with only ID populated
    * @throws IllegalArgumentException Checks that ID is in the proper format
    */
-  public static User justId(String id) {
+  public static Category justId(String id) {
     try {
       UUID.fromString(id); // Check that ID is in the UUID format - if not an exception is thrown
     } catch (Exception exception) {
@@ -144,10 +125,8 @@ public final class User implements Model {
               "creating a new object, use the standard builder method and leave the ID field blank."
       );
     }
-    return new User(
+    return new Category(
       id,
-      null,
-      null,
       null,
       null
     );
@@ -155,65 +134,45 @@ public final class User implements Model {
   
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
-      username,
-      email,
-      password,
-      auth);
+      name,
+      City);
   }
-  public interface UsernameStep {
-    BuildStep username(String username);
+  public interface NameStep {
+    BuildStep name(String name);
   }
   
 
   public interface BuildStep {
-    User build();
+    Category build();
     BuildStep id(String id) throws IllegalArgumentException;
-    BuildStep email(String email);
-    BuildStep password(String password);
-    BuildStep auth(String auth);
+    BuildStep city(City city);
   }
   
 
-  public static class Builder implements UsernameStep, BuildStep {
+  public static class Builder implements NameStep, BuildStep {
     private String id;
-    private String username;
-    private String email;
-    private String password;
-    private String auth;
+    private String name;
+    private City City;
     @Override
-     public User build() {
+     public Category build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
         
-        return new User(
+        return new Category(
           id,
-          username,
-          email,
-          password,
-          auth);
+          name,
+          City);
     }
     
     @Override
-     public BuildStep username(String username) {
-        Objects.requireNonNull(username);
-        this.username = username;
+     public BuildStep name(String name) {
+        Objects.requireNonNull(name);
+        this.name = name;
         return this;
     }
     
     @Override
-     public BuildStep email(String email) {
-        this.email = email;
-        return this;
-    }
-    
-    @Override
-     public BuildStep password(String password) {
-        this.password = password;
-        return this;
-    }
-    
-    @Override
-     public BuildStep auth(String auth) {
-        this.auth = auth;
+     public BuildStep city(City city) {
+        this.City = city;
         return this;
     }
     
@@ -240,32 +199,20 @@ public final class User implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String username, String email, String password, String auth) {
+    private CopyOfBuilder(String id, String name, City city) {
       super.id(id);
-      super.username(username)
-        .email(email)
-        .password(password)
-        .auth(auth);
+      super.name(name)
+        .city(city);
     }
     
     @Override
-     public CopyOfBuilder username(String username) {
-      return (CopyOfBuilder) super.username(username);
+     public CopyOfBuilder name(String name) {
+      return (CopyOfBuilder) super.name(name);
     }
     
     @Override
-     public CopyOfBuilder email(String email) {
-      return (CopyOfBuilder) super.email(email);
-    }
-    
-    @Override
-     public CopyOfBuilder password(String password) {
-      return (CopyOfBuilder) super.password(password);
-    }
-    
-    @Override
-     public CopyOfBuilder auth(String auth) {
-      return (CopyOfBuilder) super.auth(auth);
+     public CopyOfBuilder city(City city) {
+      return (CopyOfBuilder) super.city(city);
     }
   }
   

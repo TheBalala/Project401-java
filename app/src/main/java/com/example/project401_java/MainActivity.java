@@ -14,6 +14,7 @@ import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
 import com.amplifyframework.auth.options.AuthSignOutOptions;
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.generated.model.Category;
 import com.amplifyframework.datastore.generated.model.User;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,6 +39,49 @@ Button logOut;
                 error -> Log.e("AmplifyQuickstart", error.toString())
         );
 
+
+
+
+
+
+
+//
+//
+//        Category c1 = Category.builder()
+//                .name("electric")
+//                .build();
+//
+//        Amplify.API.mutate(ModelMutation.create(c1),
+//                response -> Log.i("MyAmplifyApp", "Todo with id: " + response.getData().getId()),
+//                error -> Log.e("MyAmplifyApp", "Create failed", error)
+//        );
+//
+//        Category c2 = Category.builder()
+//                .name("street")
+//                .build();
+//
+//        Amplify.API.mutate(ModelMutation.create(c2),
+//                response -> Log.i("MyAmplifyApp", "Todo with id: " + response.getData().getId()),
+//                error -> Log.e("MyAmplifyApp", "Create failed", error)
+//        );
+//        Category c3 = Category.builder()
+//                .name("water")
+//                .build();
+//
+//        Amplify.API.mutate(ModelMutation.create(c3),
+//                response -> Log.i("MyAmplifyApp", "Todo with id: " + response.getData().getId()),
+//                error -> Log.e("MyAmplifyApp", "Create failed", error)
+//        );
+//        Category c4 = Category.builder()
+//                .name("others")
+//                .build();
+//
+//        Amplify.API.mutate(ModelMutation.create(c4),
+//                response -> Log.i("MyAmplifyApp", "Todo with id: " + response.getData().getId()),
+//                error -> Log.e("MyAmplifyApp", "Create failed", error)
+//        );
+
+
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,11 +100,19 @@ Button logOut;
                startActivity(intent);
             }
         });
-        Button category = (Button) findViewById(R.id.category);
-        category.setOnClickListener(new View.OnClickListener() {
+//        Button category = (Button) findViewById(R.id.category);
+//        category.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(MainActivity.this,Category.class);
+//                startActivity(intent);
+//            }
+//        });
+        Button city = (Button) findViewById(R.id.city);
+        city.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,Category.class);
+                Intent intent = new Intent(MainActivity.this,City.class);
                 startActivity(intent);
             }
         });
