@@ -4,4 +4,33 @@ type User @model {
   email: String
   password: String
   auth: String
+  Complain: [Complain] @connection(name: "ComplainUser")
+
+}
+type Complain @model {
+  id: ID!
+  Description: String!
+  Category: Category @connection(name: "ComplainCategory")
+  User: User @connection(name: "ComplainUser")
+  City: City @connection(name: "CityComplain")
+  State: String!
+
+
+}
+type City @model {
+  id: ID!
+  name: String
+  Category: [Category] @connection(name: "CityCategory")
+  Complain: [Complain] @connection(name: "CityComplain")
+
+
+
+}
+
+type Category @model {
+  id: ID!
+  name: String!
+  Complain: [Complain] @connection(name: "ComplainCategory")
+  City: City @connection(name: "CityCategory")
+
 }

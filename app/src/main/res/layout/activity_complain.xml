@@ -4,42 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Complain">
 
-
-    <Button
-        android:id="@+id/login"
+    <EditText
+        android:id="@+id/DescriptionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LogIn"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32" />
+        app:layout_constraintVertical_bias="0.215" />
 
     <Button
-        android:id="@+id/logoutuser"
+        android:id="@+id/saveComplain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="logout"
+        android:text="Send"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/city"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="158dp"
-        android:layout_marginEnd="140dp"
-        android:text="category"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.685" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
