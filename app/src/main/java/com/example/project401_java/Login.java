@@ -31,7 +31,7 @@ Handler handler;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        setTitle("Login");
         Amplify.Auth.signIn(
                 "username",
                 "password",

@@ -56,6 +56,14 @@ Button logOut;
                startActivity(intent);
             }
         });
+        Button category = (Button) findViewById(R.id.category);
+        category.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,Category.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

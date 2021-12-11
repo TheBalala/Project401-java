@@ -16,7 +16,7 @@ Button logOut;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
         logOut = findViewById(R.id.logoutadmin);
-
+        setTitle("Admin");
 
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -24,6 +24,7 @@ public class VerificationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verification);
+        setTitle("Verification");
         editText = findViewById(R.id.verfi);
         varfyButton = findViewById(R.id.varfiButton);
         Intent intent = getIntent();
