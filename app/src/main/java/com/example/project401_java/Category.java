@@ -36,7 +36,7 @@ public class Category extends AppCompatActivity implements View.OnClickListener 
         System.out.println("dddddddddddddddddddddddn "+cityName);
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(Category.this);
         sharedPreferences.edit().putString("cityName",cityName).apply();
-//        Intent intent = new Intent(Category.this,Complain.class);
-//        startActivity(intent);
+        Intent intent = new Intent(Category.this,Complain.class);
+        startActivity(intent);
     }
 }

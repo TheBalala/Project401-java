@@ -6,27 +6,70 @@
     android:layout_height="match_parent"
     tools:context=".Complain">
 
-    <EditText
-        android:id="@+id/DescriptionText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Description"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="486dp"
+        android:layout_height="809dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.76"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.215" />
+        app:layout_constraintVertical_bias="0.282"
+        app:srcCompat="@drawable/complain" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="157dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="155dp"
+        android:layout_marginTop="324dp"
+        android:layout_marginEnd="199dp"
+
+        android:text="Add your problem here"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.28"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/DescriptionText"
+        android:layout_width="305dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="add description"
+        android:inputType="textPersonName"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.635" />
 
     <Button
         android:id="@+id/saveComplain"
-        android:layout_width="wrap_content"
+        android:layout_width="324dp"
         android:layout_height="wrap_content"
-        android:text="Send"
+        android:text="send"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.91" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="324dp"
+        android:layout_height="wrap_content"
+        android:text="add photo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.806" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

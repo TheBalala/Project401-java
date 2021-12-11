@@ -56,14 +56,14 @@ Button logOut;
 //                error -> Log.e("MyAmplifyApp", "Create failed", error)
 //        );
 //
-        Category c2 = Category.builder()
-                .name("street")
-                .build();
-
-        Amplify.API.mutate(ModelMutation.create(c2),
-                response -> Log.i("MyAmplifyApp", "Todo with id: " + response.getData().getId()),
-                error -> Log.e("MyAmplifyApp", "Create failed", error)
-        );
+//        Category c2 = Category.builder()
+//                .name("street")
+//                .build();
+//
+//        Amplify.API.mutate(ModelMutation.create(c2),
+//                response -> Log.i("MyAmplifyApp", "Todo with id: " + response.getData().getId()),
+//                error -> Log.e("MyAmplifyApp", "Create failed", error)
+//        );
 //        Category c3 = Category.builder()
 //                .name("water")
 //                .build();
@@ -108,14 +108,14 @@ Button logOut;
 //                startActivity(intent);
 //            }
 //        });
-//        Button city = (Button) findViewById(R.id.city);
-//        city.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(MainActivity.this,City.class);
-//                startActivity(intent);
-//            }
-//        });
+        Button city = (Button) findViewById(R.id.city);
+        city.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,City.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

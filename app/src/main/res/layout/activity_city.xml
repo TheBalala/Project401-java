@@ -190,7 +190,7 @@ android:transitionName="amman"
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/cardview_shadow_start_color">
+                    >
 
                     <ImageView
                         android:src="@drawable/logo"
