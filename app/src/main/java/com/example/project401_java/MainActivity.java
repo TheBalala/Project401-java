@@ -1,10 +1,13 @@
 package com.example.project401_java;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -82,16 +85,16 @@ Button logOut;
 //        );
 
 
-        logOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Amplify.Auth.signOut(
-                        AuthSignOutOptions.builder().globalSignOut(true).build(),
-                        () -> Log.i("AuthQuickstart", "Signed out globally"),
-                        error -> Log.e("AuthQuickstart", error.toString())
-                );
-            }
-        });
+//        logOut.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Amplify.Auth.signOut(
+//                        AuthSignOutOptions.builder().globalSignOut(true).build(),
+//                        () -> Log.i("AuthQuickstart", "Signed out globally"),
+//                        error -> Log.e("AuthQuickstart", error.toString())
+//                );
+//            }
+//        });
         Button login = (Button) findViewById(R.id.login);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,6 +121,28 @@ Button logOut;
         });
 
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
 
-
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.my:
+                Intent setting = new Intent(MainActivity.this, Profile.class);
+                startActivity(setting);
+                return true;
+            case R.id.logoutmenu:
+                Amplify.Auth.signOut(
+                        AuthSignOutOptions.builder().globalSignOut(true).build(),
+                        () -> Log.i("AuthQuickstart", "Signed out globally"),
+                        error -> Log.e("AuthQuickstart", error.toString())
+                );
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }

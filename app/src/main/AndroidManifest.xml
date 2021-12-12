@@ -25,6 +25,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project401java">
         <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Profile"
+            android:exported="true"
+            android:parentActivityName=".MainActivity"/>
+        <activity
             android:name=".Complain"
             android:exported="true" />
         <activity
@@ -51,7 +58,7 @@
             android:exported="true"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Spllash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
