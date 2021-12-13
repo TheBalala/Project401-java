@@ -66,7 +66,7 @@ Handler handler;
                     public boolean handleMessage(@NonNull Message message) {
                         if(userForAuth.getAuth().equals("ADMIN") ){
                             System.out.println("ADMINNNNNNNNNNN "+userForAuth.getAuth());
-                            Intent goToMain = new Intent(Login.this, Admin.class);
+                            Intent goToMain = new Intent(Login.this, MainActivity.class);
                             goToMain.putExtra("username",username);
                             startActivity(goToMain);
                         }else{
@@ -78,6 +78,8 @@ Handler handler;
                             System.out.println("Roleuserrrrrrrrrr "+userForAuth.getAuth());
 
                         }
+                        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(Login.this);
+                        sharedPreferences.edit().putString("isAuthA",userForAuth.getAuth()).apply();
                         return false;
                     }
                 });

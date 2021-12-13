@@ -3,18 +3,26 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/LTUC/Desktop/project/Project401-java/app/src/main/res/drawable/roundedbutton.xml" value="0.2703125" />
+        <entry key="..\:/Users/LTUC/Desktop/project/Project401-java/app/src/main/res/layout/activity_login.xml" value="0.176" />
+        <entry key="..\:/Users/LTUC/Desktop/project/Project401-java/app/src/main/res/layout/activity_sign_up.xml" value="0.176" />
+        <entry key="..\:/Users/STUDENT/Desktop/final/Project401-java/app/src/main/res/layout/activity_admain_complain_recycler_view.xml" value="0.1721014492753623" />
+        <entry key="..\:/Users/STUDENT/Desktop/final/Project401-java/app/src/main/res/layout/activity_category.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/STUDENT/Desktop/final/Project401-java/app/src/main/res/layout/activity_city.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/STUDENT/Desktop/final/Project401-java/app/src/main/res/layout/activity_complain.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/STUDENT/Desktop/final/Project401-java/app/src/main/res/layout/activity_complain_adapter.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/STUDENT/Desktop/final/Project401-java/app/src/main/res/layout/activity_complain_fragment.xml" value="0.11614583333333334" />
+        <entry key="..\:/Users/STUDENT/Desktop/final/Project401-java/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/Users/STUDENT/Desktop/final/Project401-java/app/src/main/res/layout/activity_main.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/STUDENT/Desktop/final/Project401-java/app/src/main/res/layout/activity_profile.xml" value="0.15572916666666667" />
+        <entry key="..\:/Users/STUDENT/Desktop/final/Project401-java/app/src/main/res/layout/activity_sign_up.xml" value="0.264" />
+        <entry key="..\:/Users/STUDENT/Desktop/final/Project401-java/app/src/main/res/layout/activity_spllash.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/STUDENT/Desktop/final/Project401-java/app/src/main/res/layout/activity_verification.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/STUDENT/Desktop/final/Project401-java/app/src/main/res/layout/fragment_complain.xml" value="0.11614583333333334" />
+        <entry key="..\:/Users/STUDENT/Desktop/final/Project401-java/app/src/main/res/layout/fragment_complain2.xml" value="0.1721014492753623" />
+        <entry key="..\:/Users/STUDENT/Desktop/final/Project401-java/app/src/main/res/menu/main_menu.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/user/Desktop/project401/Project401-java/app/src/main/res/layout/activity_login.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/user/Desktop/project401/Project401-java/app/src/main/res/layout/activity_sign_up.xml" value="0.25416666666666665" />
-        <entry key="app/src/main/res/layout/activity_admin.xml" value="0.10099186160514097" />
-        <entry key="app/src/main/res/layout/activity_category.xml" value="0.1052519828816255" />
-        <entry key="app/src/main/res/layout/activity_city.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_complain.xml" value="0.1647271407781352" />
-        <entry key="app/src/main/res/layout/activity_entry_data.xml" value="0.28637017795492775" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.2022039750933558" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.14907407407407408" />
-        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.16770833333333332" />
-        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_verification.xml" value="0.2888867246732248" />
       </map>
     </option>
   </component>
