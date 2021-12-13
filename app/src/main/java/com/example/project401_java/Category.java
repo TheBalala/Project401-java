@@ -31,12 +31,20 @@ public class Category extends AppCompatActivity implements View.OnClickListener 
     @Override
     public void onClick(View v) {
         RelativeLayout button = findViewById(v.getId());
-
+        SharedPreferences sharedPreferences1= PreferenceManager.getDefaultSharedPreferences(Category.this);
+        String username = sharedPreferences1.getString("isAuthA", "username");
         String category = button.getTransitionName();
         System.out.println("dddddddddddddddddddddddn "+category);
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(Category.this);
         sharedPreferences.edit().putString("category",category).apply();
-        Intent intent = new Intent(Category.this,Complain.class);
-        startActivity(intent);
+        Intent intent;
+        if (username.equals("ADMIN")) {
+            intent = new Intent(Category.this, AdmainComplainRecyclerVIew.class);
+            startActivity(intent);
+        } else {
+            intent = new Intent(Category.this, Complain.class);
+            startActivity(intent);
+        }
     }
+
 }
