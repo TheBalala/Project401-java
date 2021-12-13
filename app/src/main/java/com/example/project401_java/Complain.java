@@ -2,14 +2,15 @@ package com.example.project401_java;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.core.Amplify;
-import com.amplifyframework.datastore.generated.model.City;
 
 public class Complain extends AppCompatActivity {
 com.amplifyframework.datastore.generated.model.Complain complain;
@@ -19,26 +20,27 @@ com.amplifyframework.datastore.generated.model.Complain complain;
         setContentView(R.layout.activity_complain);
         Button saveComplain = findViewById(R.id.saveComplain);
         EditText description = findViewById(R.id.DescriptionText);
-//        saveComplain.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                 complain = com.amplifyframework.datastore.generated.model.Complain.builder()
-//                        .description()
-//                         .state()
-//                         .category()
-//                         .city()
-//                         .user()
-//                        .build();
-//
-//                Amplify.API.mutate(ModelMutation.create(todo),
-//                        response -> Log.i("MyAmplifyApp", "Todo with id: " + response.getData().getId()),
-//                        error -> Log.e("MyAmplifyApp", "Create failed", error)
-//                );
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(Complain.this);
+        String cityName = sharedPreferences.getString("cityName","cityName");
+        String category = sharedPreferences.getString("category","category");
+        String username = sharedPreferences.getString("username","username");
+        saveComplain.setOnClickListener(v -> {
+
+             complain = com.amplifyframework.datastore.generated.model.Complain.builder()
+                    .description(description.getText().toString())
+                     .state("sent")
+                     .categoryName(category)
+                     .cityName(cityName)
+                     .username(username)
+                    .build();
+
+            Amplify.API.mutate(ModelMutation.create(complain),
+                    response -> Log.i("complain", "complain success " + response.getData().getId()),
+                    error -> Log.e("complain", "complain failed", error)
+            );
 //                description.getText();
-//            }
-//        });
-//
+        });
+
 
     }
 }

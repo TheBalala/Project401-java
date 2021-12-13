@@ -4,33 +4,33 @@ type User @model {
   email: String
   password: String
   auth: String
-  Complain: [Complain] @connection(name: "ComplainUser")
+  Complain: [Complain] @connection(keyName: "byComplain", fields: ["username"])
 
 }
-type Complain @model {
+type Complain @model @key(name: "byComplain", fields: ["categoryName","username","cityName","Description","State"]){
   id: ID!
   Description: String!
-  Category: Category @connection(name: "ComplainCategory")
-  User: User @connection(name: "ComplainUser")
-  City: City @connection(name: "CityComplain")
+  categoryName: String
+  username: String
+  cityName: String
   State: String!
 
 
 }
-type City @model {
+type City @model  {
   id: ID!
-  name: String
-  Category: [Category] @connection(name: "CityCategory")
-  Complain: [Complain] @connection(name: "CityComplain")
+  cityName: String
+  Category: [Category] @connection(keyName: "byComplain", fields: ["cityName"])
+
 
 
 
 }
 
-type Category @model {
+type Category @model @key(name: "byComplain", fields: ["categoryName","cityName"]) {
   id: ID!
-  name: String!
-  Complain: [Complain] @connection(name: "ComplainCategory")
-  City: City @connection(name: "CityCategory")
+  categoryName: String!
+  Complain: [Complain] @connection(keyName: "byComplain", fields: ["categoryName"])
+  cityName: String
 
 }

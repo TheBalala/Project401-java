@@ -1,7 +1,6 @@
 package com.amplifyframework.datastore.generated.model;
 
 import com.amplifyframework.core.model.annotations.HasMany;
-import com.amplifyframework.core.model.annotations.BelongsTo;
 import com.amplifyframework.core.model.temporal.Temporal;
 
 import java.util.List;
@@ -21,30 +20,31 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 /** This is an auto generated class representing the Category type in your schema. */
 @SuppressWarnings("all")
 @ModelConfig(pluralName = "Categories")
+@Index(name = "byComplain", fields = {"categoryName","cityName"})
 public final class Category implements Model {
   public static final QueryField ID = field("Category", "id");
-  public static final QueryField NAME = field("Category", "name");
-  public static final QueryField CITY = field("Category", "categoryCityId");
+  public static final QueryField CATEGORY_NAME = field("Category", "categoryName");
+  public static final QueryField CITY_NAME = field("Category", "cityName");
   private final @ModelField(targetType="ID", isRequired = true) String id;
-  private final @ModelField(targetType="String", isRequired = true) String name;
-  private final @ModelField(targetType="Complain") @HasMany(associatedWith = "Category", type = Complain.class) List<Complain> Complain = null;
-  private final @ModelField(targetType="City") @BelongsTo(targetName = "categoryCityId", type = City.class) City City;
+  private final @ModelField(targetType="String", isRequired = true) String categoryName;
+  private final @ModelField(targetType="Complain") @HasMany(associatedWith = "categoryName", type = Complain.class) List<Complain> Complain = null;
+  private final @ModelField(targetType="String") String cityName;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   public String getId() {
       return id;
   }
   
-  public String getName() {
-      return name;
+  public String getCategoryName() {
+      return categoryName;
   }
   
   public List<Complain> getComplain() {
       return Complain;
   }
   
-  public City getCity() {
-      return City;
+  public String getCityName() {
+      return cityName;
   }
   
   public Temporal.DateTime getCreatedAt() {
@@ -55,10 +55,10 @@ public final class Category implements Model {
       return updatedAt;
   }
   
-  private Category(String id, String name, City City) {
+  private Category(String id, String categoryName, String cityName) {
     this.id = id;
-    this.name = name;
-    this.City = City;
+    this.categoryName = categoryName;
+    this.cityName = cityName;
   }
   
   @Override
@@ -70,8 +70,8 @@ public final class Category implements Model {
       } else {
       Category category = (Category) obj;
       return ObjectsCompat.equals(getId(), category.getId()) &&
-              ObjectsCompat.equals(getName(), category.getName()) &&
-              ObjectsCompat.equals(getCity(), category.getCity()) &&
+              ObjectsCompat.equals(getCategoryName(), category.getCategoryName()) &&
+              ObjectsCompat.equals(getCityName(), category.getCityName()) &&
               ObjectsCompat.equals(getCreatedAt(), category.getCreatedAt()) &&
               ObjectsCompat.equals(getUpdatedAt(), category.getUpdatedAt());
       }
@@ -81,8 +81,8 @@ public final class Category implements Model {
    public int hashCode() {
     return new StringBuilder()
       .append(getId())
-      .append(getName())
-      .append(getCity())
+      .append(getCategoryName())
+      .append(getCityName())
       .append(getCreatedAt())
       .append(getUpdatedAt())
       .toString()
@@ -94,15 +94,15 @@ public final class Category implements Model {
     return new StringBuilder()
       .append("Category {")
       .append("id=" + String.valueOf(getId()) + ", ")
-      .append("name=" + String.valueOf(getName()) + ", ")
-      .append("City=" + String.valueOf(getCity()) + ", ")
+      .append("categoryName=" + String.valueOf(getCategoryName()) + ", ")
+      .append("cityName=" + String.valueOf(getCityName()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
       .append("}")
       .toString();
   }
   
-  public static NameStep builder() {
+  public static CategoryNameStep builder() {
       return new Builder();
   }
   
@@ -134,45 +134,45 @@ public final class Category implements Model {
   
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
-      name,
-      City);
+      categoryName,
+      cityName);
   }
-  public interface NameStep {
-    BuildStep name(String name);
+  public interface CategoryNameStep {
+    BuildStep categoryName(String categoryName);
   }
   
 
   public interface BuildStep {
     Category build();
     BuildStep id(String id) throws IllegalArgumentException;
-    BuildStep city(City city);
+    BuildStep cityName(String cityName);
   }
   
 
-  public static class Builder implements NameStep, BuildStep {
+  public static class Builder implements CategoryNameStep, BuildStep {
     private String id;
-    private String name;
-    private City City;
+    private String categoryName;
+    private String cityName;
     @Override
      public Category build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
         
         return new Category(
           id,
-          name,
-          City);
+          categoryName,
+          cityName);
     }
     
     @Override
-     public BuildStep name(String name) {
-        Objects.requireNonNull(name);
-        this.name = name;
+     public BuildStep categoryName(String categoryName) {
+        Objects.requireNonNull(categoryName);
+        this.categoryName = categoryName;
         return this;
     }
     
     @Override
-     public BuildStep city(City city) {
-        this.City = city;
+     public BuildStep cityName(String cityName) {
+        this.cityName = cityName;
         return this;
     }
     
@@ -199,20 +199,20 @@ public final class Category implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String name, City city) {
+    private CopyOfBuilder(String id, String categoryName, String cityName) {
       super.id(id);
-      super.name(name)
-        .city(city);
+      super.categoryName(categoryName)
+        .cityName(cityName);
     }
     
     @Override
-     public CopyOfBuilder name(String name) {
-      return (CopyOfBuilder) super.name(name);
+     public CopyOfBuilder categoryName(String categoryName) {
+      return (CopyOfBuilder) super.categoryName(categoryName);
     }
     
     @Override
-     public CopyOfBuilder city(City city) {
-      return (CopyOfBuilder) super.city(city);
+     public CopyOfBuilder cityName(String cityName) {
+      return (CopyOfBuilder) super.cityName(cityName);
     }
   }
   
