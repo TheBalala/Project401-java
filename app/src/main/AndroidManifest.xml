@@ -25,6 +25,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project401java">
         <activity
+            android:name=".AdmainComplainRecyclerVIew"
+            android:exported="true" />
+        <activity
             android:name=".entryData"
             android:exported="true" />
         <activity

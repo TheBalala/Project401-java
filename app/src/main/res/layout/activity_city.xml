@@ -40,7 +40,7 @@
                 android:layout_below="@+id/textdashboard"
                 android:text="Select The City"
                 android:textColor="#CCCCCC"
-                android:textSize="14sp" />
+                android:textSize="18sp" />
 
         </RelativeLayout>
 
@@ -74,20 +74,23 @@ android:transitionName="amman"
                     android:padding="16dp"
                     android:gravity="center"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="#EDEDCC">
 
                     <ImageView
-                        android:src="@drawable/logo"
+                        android:src="@drawable/amman"
                         android:layout_width="80dp"
-                        android:layout_height="80dp"/>
+                        android:layout_height="80dp"
+                        />
 
                     <TextView
                         android:layout_marginTop="3dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
+                        android:textColor="#191919"
+                        android:textSize="20sp"
                         android:text="Amman"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
+
 
                 </LinearLayout>
 
@@ -112,20 +115,22 @@ android:transitionName="amman"
                     android:padding="16dp"
                     android:gravity="center"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="#EDEDCC">
 
                     <ImageView
-                        android:src="@drawable/logo"
+                        android:src="@drawable/tafilah"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
 
                     <TextView
                         android:layout_marginTop="3dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
+                        android:textColor="#191919"
+                        android:textSize="20sp"
                         android:text="Tafilah"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
+
 
                 </LinearLayout>
 
@@ -151,20 +156,22 @@ android:transitionName="amman"
                     android:padding="16dp"
                     android:gravity="center"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="#EDEDCC">
 
                     <ImageView
-                        android:src="@drawable/logo"
+                        android:src="@drawable/karak"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
 
                     <TextView
                         android:layout_marginTop="3dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
+                        android:textColor="#191919"
+                        android:textSize="20sp"
                         android:text="Karak"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
+
 
                 </LinearLayout>
 
@@ -190,17 +197,17 @@ android:transitionName="amman"
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    >
+                    android:background="#EDEDCC">
 
                     <ImageView
-                        android:src="@drawable/logo"
+                        android:src="@drawable/aqaba"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
 
                     <TextView
                         android:layout_marginTop="3dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
+                        android:textColor="#191919"
+                        android:textSize="20sp"
                         android:text="Aqaba"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
@@ -228,20 +235,22 @@ android:transitionName="amman"
                     android:padding="16dp"
                     android:gravity="center"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="#EDEDCC">
 
                     <ImageView
-                        android:src="@drawable/logo"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"/>
+                        android:layout_width="78dp"
+                        android:layout_height="68dp"
+                        android:src="@drawable/irbid" />
 
                     <TextView
                         android:layout_marginTop="3dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
+                        android:textColor="#191919"
+                        android:textSize="20sp"
                         android:text="Irbid"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
+
 
                 </LinearLayout>
 
@@ -266,18 +275,20 @@ android:transitionName="amman"
                     android:padding="16dp"
                     android:gravity="center"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="#EDEDCC">
+
 
                     <ImageView
-                        android:src="@drawable/logo"
+                        android:src="@drawable/ajloun"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
 
                     <TextView
                         android:layout_marginTop="3dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
-                        android:text="Ajlun"
+                        android:textColor="#191919"
+                        android:textSize="20sp"
+                        android:text="Ajloun"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
@@ -304,18 +315,19 @@ android:transitionName="amman"
                     android:padding="16dp"
                     android:gravity="center"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="#EDEDCC">
 
                     <ImageView
-                        android:src="@drawable/logo"
+                        android:src="@drawable/jerash"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
 
                     <TextView
                         android:layout_marginTop="3dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
-                        android:text="Jarash"
+                        android:textColor="#191919"
+                        android:textSize="20sp"
+                        android:text="Jerash"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
@@ -342,20 +354,22 @@ android:transitionName="amman"
                     android:padding="16dp"
                     android:gravity="center"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="#EDEDCC">
 
                     <ImageView
-                        android:src="@drawable/logo"
+                        android:src="@drawable/maan"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
 
                     <TextView
                         android:layout_marginTop="3dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
+                        android:textColor="#191919"
+                        android:textSize="20sp"
                         android:text="Ma'an"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
+
 
                 </LinearLayout>
 
@@ -380,17 +394,18 @@ android:transitionName="amman"
                     android:padding="16dp"
                     android:gravity="center"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="#EDEDCC">
 
                     <ImageView
-                        android:src="@drawable/logo"
+                        android:src="@drawable/madaba"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
 
                     <TextView
                         android:layout_marginTop="3dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
+                        android:textColor="#191919"
+                        android:textSize="20sp"
                         android:text="Madaba"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
@@ -418,20 +433,22 @@ android:transitionName="amman"
                     android:padding="16dp"
                     android:gravity="center"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="#EDEDCC">
 
                     <ImageView
-                        android:src="@drawable/logo"
+                        android:src="@drawable/mefraq"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
 
                     <TextView
                         android:layout_marginTop="3dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
-                        android:text="Mafrak"
+                        android:textColor="#191919"
+                        android:textSize="20sp"
+                        android:text="Mafreq"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
+
 
                 </LinearLayout>
 
@@ -456,17 +473,18 @@ android:transitionName="amman"
                     android:padding="16dp"
                     android:gravity="center"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="#EDEDCC">
 
                     <ImageView
-                        android:src="@drawable/logo"
+                        android:src="@drawable/balqa"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
 
                     <TextView
                         android:layout_marginTop="3dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
+                        android:textColor="#191919"
+                        android:textSize="20sp"
                         android:text="Balqa"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
@@ -493,17 +511,18 @@ android:transitionName="amman"
                     android:padding="16dp"
                     android:gravity="center"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="#EDEDCC">
 
                     <ImageView
-                        android:src="@drawable/logo"
+                        android:src="@drawable/zarqa"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
 
                     <TextView
                         android:layout_marginTop="3dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
+                        android:textColor="#191919"
+                        android:textSize="20sp"
                         android:text="Zarqa"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>

@@ -2,6 +2,8 @@ package com.example.project401_java;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -24,7 +26,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Profile extends AppCompatActivity {
-Button history;
 ArrayList<Complain> listComplain = new ArrayList<>();
 HashMap<String, Category> listCategory = new HashMap<>();
 Handler handler;
@@ -33,19 +34,19 @@ User user1;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        history = findViewById(R.id.history);
-        history.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {;
-//                historyU();
-                admin();
-            }
-        });
+        historyU();
     }
     public void historyU(){
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(Profile.this);
         String username = sharedPreferences.getString("username","username");
-
+        RecyclerView recyclerView = findViewById(R.id.allTaskRecyclerViews);
+        Handler handler = new Handler(Looper.getMainLooper(), new Handler.Callback() {
+            @Override
+            public boolean handleMessage(@NonNull Message message) {
+                recyclerView.getAdapter().notifyDataSetChanged();
+                return false;
+            }
+        });
         Amplify.API.query(
                 ModelQuery.list(Complain.class, Complain.USERNAME.contains(username)),
                 response -> {
@@ -55,49 +56,51 @@ User user1;
                     }
                     System.out.println("alaaaaaaaaa complaiiiiin "+listComplain.toString());
 //                    System.out.println("alaaaaaaaaa complaiiiiin "+user1.getComplain().toString());
+                    handler.sendEmptyMessage(1);
 
                 },
                 error -> Log.e("MyAmplifyApp", "Query failure", error)
 
         );
-
+        recyclerView.setLayoutManager(new LinearLayoutManager(Profile.this));
+        recyclerView.setAdapter(new ComplainAdpter(listComplain));
     }
 
-    public void admin(){
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(Profile.this);
-        String cityName = sharedPreferences.getString("cityName","cityName");
-        String categoryName = sharedPreferences.getString("category","category");
-
-        handler = new Handler(Looper.getMainLooper(),
-                new Handler.Callback() {
-                    @Override
-                    public boolean handleMessage(@NonNull Message message) {
-                     if (listCategory.containsKey(categoryName)){
-                         listComplain = (ArrayList<Complain>) listCategory.get(categoryName).getComplain();
-                         System.out.println(listComplain.toString());
-                        }
-                        return false;
-                    }
-                });
-
-        Amplify.API.query(
-                ModelQuery.list(Category.class, Category.CITY_NAME.contains(cityName)),
-                response -> {
-                    for (Category category : response.getData()) {
-
-                            listCategory.put(category.getCategoryName(),category);
-
-                        Log.i("MyAmplifyApp", listComplain.toString());
-                    }
-                    System.out.println("alaaaaaaaaa complaiiiiin "+listComplain.toString());
-//                    System.out.println("alaaaaaaaaa complaiiiiin "+user1.getComplain().toString());
-
-handler.sendEmptyMessage(1);
-                },
-                error -> Log.e("MyAmplifyApp", "Query failure", error)
-
-        );
-
-
-    }
+//    public void admin(){
+//        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(Profile.this);
+//        String cityName = sharedPreferences.getString("cityName","cityName");
+//        String categoryName = sharedPreferences.getString("category","category");
+//
+//        handler = new Handler(Looper.getMainLooper(),
+//                new Handler.Callback() {
+//                    @Override
+//                    public boolean handleMessage(@NonNull Message message) {
+//                     if (listCategory.containsKey(categoryName)){
+//                         listComplain = (ArrayList<Complain>) listCategory.get(categoryName).getComplain();
+//                         System.out.println(listComplain.toString());
+//                        }
+//                        return false;
+//                    }
+//                });
+//
+//        Amplify.API.query(
+//                ModelQuery.list(Category.class, Category.CITY_NAME.contains(cityName)),
+//                response -> {
+//                    for (Category category : response.getData()) {
+//
+//                            listCategory.put(category.getCategoryName(),category);
+//
+//                        Log.i("MyAmplifyApp", listComplain.toString());
+//                    }
+//                    System.out.println("alaaaaaaaaa complaiiiiin "+listComplain.toString());
+////                    System.out.println("alaaaaaaaaa complaiiiiin "+user1.getComplain().toString());
+//
+//handler.sendEmptyMessage(1);
+//                },
+//                error -> Log.e("MyAmplifyApp", "Query failure", error)
+//
+//        );
+//
+//
+//    }
 }
