@@ -31,7 +31,7 @@ public final class User implements Model {
   private final @ModelField(targetType="String") String email;
   private final @ModelField(targetType="String") String password;
   private final @ModelField(targetType="String") String auth;
-  private final @ModelField(targetType="Complain") @HasMany(associatedWith = "User", type = Complain.class) List<Complain> Complain = null;
+  private final @ModelField(targetType="Complain") @HasMany(associatedWith = "categoryName", type = Complain.class) List<Complain> Complain = null;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   public String getId() {

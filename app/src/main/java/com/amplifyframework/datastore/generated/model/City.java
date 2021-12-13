@@ -1,6 +1,5 @@
 package com.amplifyframework.datastore.generated.model;
 
-import com.amplifyframework.core.model.annotations.HasMany;
 import com.amplifyframework.core.model.temporal.Temporal;
 
 import java.util.List;
@@ -22,27 +21,17 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 @ModelConfig(pluralName = "Cities")
 public final class City implements Model {
   public static final QueryField ID = field("City", "id");
-  public static final QueryField NAME = field("City", "name");
+  public static final QueryField CITY_NAME = field("City", "cityName");
   private final @ModelField(targetType="ID", isRequired = true) String id;
-  private final @ModelField(targetType="String") String name;
-  private final @ModelField(targetType="Category") @HasMany(associatedWith = "City", type = Category.class) List<Category> Category = null;
-  private final @ModelField(targetType="Complain") @HasMany(associatedWith = "City", type = Complain.class) List<Complain> Complain = null;
+  private final @ModelField(targetType="String") String cityName;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   public String getId() {
       return id;
   }
   
-  public String getName() {
-      return name;
-  }
-  
-  public List<Category> getCategory() {
-      return Category;
-  }
-  
-  public List<Complain> getComplain() {
-      return Complain;
+  public String getCityName() {
+      return cityName;
   }
   
   public Temporal.DateTime getCreatedAt() {
@@ -53,9 +42,9 @@ public final class City implements Model {
       return updatedAt;
   }
   
-  private City(String id, String name) {
+  private City(String id, String cityName) {
     this.id = id;
-    this.name = name;
+    this.cityName = cityName;
   }
   
   @Override
@@ -67,7 +56,7 @@ public final class City implements Model {
       } else {
       City city = (City) obj;
       return ObjectsCompat.equals(getId(), city.getId()) &&
-              ObjectsCompat.equals(getName(), city.getName()) &&
+              ObjectsCompat.equals(getCityName(), city.getCityName()) &&
               ObjectsCompat.equals(getCreatedAt(), city.getCreatedAt()) &&
               ObjectsCompat.equals(getUpdatedAt(), city.getUpdatedAt());
       }
@@ -77,7 +66,7 @@ public final class City implements Model {
    public int hashCode() {
     return new StringBuilder()
       .append(getId())
-      .append(getName())
+      .append(getCityName())
       .append(getCreatedAt())
       .append(getUpdatedAt())
       .toString()
@@ -89,7 +78,7 @@ public final class City implements Model {
     return new StringBuilder()
       .append("City {")
       .append("id=" + String.valueOf(getId()) + ", ")
-      .append("name=" + String.valueOf(getName()) + ", ")
+      .append("cityName=" + String.valueOf(getCityName()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
       .append("}")
@@ -127,30 +116,30 @@ public final class City implements Model {
   
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
-      name);
+      cityName);
   }
   public interface BuildStep {
     City build();
     BuildStep id(String id) throws IllegalArgumentException;
-    BuildStep name(String name);
+    BuildStep cityName(String cityName);
   }
   
 
   public static class Builder implements BuildStep {
     private String id;
-    private String name;
+    private String cityName;
     @Override
      public City build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
         
         return new City(
           id,
-          name);
+          cityName);
     }
     
     @Override
-     public BuildStep name(String name) {
-        this.name = name;
+     public BuildStep cityName(String cityName) {
+        this.cityName = cityName;
         return this;
     }
     
@@ -177,14 +166,14 @@ public final class City implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String name) {
+    private CopyOfBuilder(String id, String cityName) {
       super.id(id);
-      super.name(name);
+      super.cityName(cityName);
     }
     
     @Override
-     public CopyOfBuilder name(String name) {
-      return (CopyOfBuilder) super.name(name);
+     public CopyOfBuilder cityName(String cityName) {
+      return (CopyOfBuilder) super.cityName(cityName);
     }
   }
   

@@ -1,6 +1,5 @@
 package com.amplifyframework.datastore.generated.model;
 
-import com.amplifyframework.core.model.annotations.BelongsTo;
 import com.amplifyframework.core.model.temporal.Temporal;
 
 import java.util.List;
@@ -20,18 +19,19 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 /** This is an auto generated class representing the Complain type in your schema. */
 @SuppressWarnings("all")
 @ModelConfig(pluralName = "Complains")
+@Index(name = "byComplain", fields = {"categoryName","username","cityName","Description","State"})
 public final class Complain implements Model {
   public static final QueryField ID = field("Complain", "id");
   public static final QueryField DESCRIPTION = field("Complain", "Description");
-  public static final QueryField CATEGORY = field("Complain", "complainCategoryId");
-  public static final QueryField USER = field("Complain", "complainUserId");
-  public static final QueryField CITY = field("Complain", "complainCityId");
+  public static final QueryField CATEGORY_NAME = field("Complain", "categoryName");
+  public static final QueryField USERNAME = field("Complain", "username");
+  public static final QueryField CITY_NAME = field("Complain", "cityName");
   public static final QueryField STATE = field("Complain", "State");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="String", isRequired = true) String Description;
-  private final @ModelField(targetType="Category") @BelongsTo(targetName = "complainCategoryId", type = Category.class) Category Category;
-  private final @ModelField(targetType="User") @BelongsTo(targetName = "complainUserId", type = User.class) User User;
-  private final @ModelField(targetType="City") @BelongsTo(targetName = "complainCityId", type = City.class) City City;
+  private final @ModelField(targetType="String") String categoryName;
+  private final @ModelField(targetType="String") String username;
+  private final @ModelField(targetType="String") String cityName;
   private final @ModelField(targetType="String", isRequired = true) String State;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
@@ -43,16 +43,16 @@ public final class Complain implements Model {
       return Description;
   }
   
-  public Category getCategory() {
-      return Category;
+  public String getCategoryName() {
+      return categoryName;
   }
   
-  public User getUser() {
-      return User;
+  public String getUsername() {
+      return username;
   }
   
-  public City getCity() {
-      return City;
+  public String getCityName() {
+      return cityName;
   }
   
   public String getState() {
@@ -67,12 +67,12 @@ public final class Complain implements Model {
       return updatedAt;
   }
   
-  private Complain(String id, String Description, Category Category, User User, City City, String State) {
+  private Complain(String id, String Description, String categoryName, String username, String cityName, String State) {
     this.id = id;
     this.Description = Description;
-    this.Category = Category;
-    this.User = User;
-    this.City = City;
+    this.categoryName = categoryName;
+    this.username = username;
+    this.cityName = cityName;
     this.State = State;
   }
   
@@ -86,9 +86,9 @@ public final class Complain implements Model {
       Complain complain = (Complain) obj;
       return ObjectsCompat.equals(getId(), complain.getId()) &&
               ObjectsCompat.equals(getDescription(), complain.getDescription()) &&
-              ObjectsCompat.equals(getCategory(), complain.getCategory()) &&
-              ObjectsCompat.equals(getUser(), complain.getUser()) &&
-              ObjectsCompat.equals(getCity(), complain.getCity()) &&
+              ObjectsCompat.equals(getCategoryName(), complain.getCategoryName()) &&
+              ObjectsCompat.equals(getUsername(), complain.getUsername()) &&
+              ObjectsCompat.equals(getCityName(), complain.getCityName()) &&
               ObjectsCompat.equals(getState(), complain.getState()) &&
               ObjectsCompat.equals(getCreatedAt(), complain.getCreatedAt()) &&
               ObjectsCompat.equals(getUpdatedAt(), complain.getUpdatedAt());
@@ -100,9 +100,9 @@ public final class Complain implements Model {
     return new StringBuilder()
       .append(getId())
       .append(getDescription())
-      .append(getCategory())
-      .append(getUser())
-      .append(getCity())
+      .append(getCategoryName())
+      .append(getUsername())
+      .append(getCityName())
       .append(getState())
       .append(getCreatedAt())
       .append(getUpdatedAt())
@@ -116,9 +116,9 @@ public final class Complain implements Model {
       .append("Complain {")
       .append("id=" + String.valueOf(getId()) + ", ")
       .append("Description=" + String.valueOf(getDescription()) + ", ")
-      .append("Category=" + String.valueOf(getCategory()) + ", ")
-      .append("User=" + String.valueOf(getUser()) + ", ")
-      .append("City=" + String.valueOf(getCity()) + ", ")
+      .append("categoryName=" + String.valueOf(getCategoryName()) + ", ")
+      .append("username=" + String.valueOf(getUsername()) + ", ")
+      .append("cityName=" + String.valueOf(getCityName()) + ", ")
       .append("State=" + String.valueOf(getState()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
@@ -162,9 +162,9 @@ public final class Complain implements Model {
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
       Description,
-      Category,
-      User,
-      City,
+      categoryName,
+      username,
+      cityName,
       State);
   }
   public interface DescriptionStep {
@@ -180,9 +180,9 @@ public final class Complain implements Model {
   public interface BuildStep {
     Complain build();
     BuildStep id(String id) throws IllegalArgumentException;
-    BuildStep category(Category category);
-    BuildStep user(User user);
-    BuildStep city(City city);
+    BuildStep categoryName(String categoryName);
+    BuildStep username(String username);
+    BuildStep cityName(String cityName);
   }
   
 
@@ -190,9 +190,9 @@ public final class Complain implements Model {
     private String id;
     private String Description;
     private String State;
-    private Category Category;
-    private User User;
-    private City City;
+    private String categoryName;
+    private String username;
+    private String cityName;
     @Override
      public Complain build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
@@ -200,9 +200,9 @@ public final class Complain implements Model {
         return new Complain(
           id,
           Description,
-          Category,
-          User,
-          City,
+          categoryName,
+          username,
+          cityName,
           State);
     }
     
@@ -221,20 +221,20 @@ public final class Complain implements Model {
     }
     
     @Override
-     public BuildStep category(Category category) {
-        this.Category = category;
+     public BuildStep categoryName(String categoryName) {
+        this.categoryName = categoryName;
         return this;
     }
     
     @Override
-     public BuildStep user(User user) {
-        this.User = user;
+     public BuildStep username(String username) {
+        this.username = username;
         return this;
     }
     
     @Override
-     public BuildStep city(City city) {
-        this.City = city;
+     public BuildStep cityName(String cityName) {
+        this.cityName = cityName;
         return this;
     }
     
@@ -261,13 +261,13 @@ public final class Complain implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String description, Category category, User user, City city, String state) {
+    private CopyOfBuilder(String id, String description, String categoryName, String username, String cityName, String state) {
       super.id(id);
       super.description(description)
         .state(state)
-        .category(category)
-        .user(user)
-        .city(city);
+        .categoryName(categoryName)
+        .username(username)
+        .cityName(cityName);
     }
     
     @Override
@@ -281,18 +281,18 @@ public final class Complain implements Model {
     }
     
     @Override
-     public CopyOfBuilder category(Category category) {
-      return (CopyOfBuilder) super.category(category);
+     public CopyOfBuilder categoryName(String categoryName) {
+      return (CopyOfBuilder) super.categoryName(categoryName);
     }
     
     @Override
-     public CopyOfBuilder user(User user) {
-      return (CopyOfBuilder) super.user(user);
+     public CopyOfBuilder username(String username) {
+      return (CopyOfBuilder) super.username(username);
     }
     
     @Override
-     public CopyOfBuilder city(City city) {
-      return (CopyOfBuilder) super.city(city);
+     public CopyOfBuilder cityName(String cityName) {
+      return (CopyOfBuilder) super.cityName(cityName);
     }
   }
   
