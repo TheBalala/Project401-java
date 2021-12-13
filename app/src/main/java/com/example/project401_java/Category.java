@@ -32,10 +32,10 @@ public class Category extends AppCompatActivity implements View.OnClickListener 
     public void onClick(View v) {
         RelativeLayout button = findViewById(v.getId());
 
-        String cityName = button.getTransitionName();
-        System.out.println("dddddddddddddddddddddddn "+cityName);
+        String category = button.getTransitionName();
+        System.out.println("dddddddddddddddddddddddn "+category);
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(Category.this);
-        sharedPreferences.edit().putString("cityName",cityName).apply();
+        sharedPreferences.edit().putString("category",category).apply();
         Intent intent = new Intent(Category.this,Complain.class);
         startActivity(intent);
     }

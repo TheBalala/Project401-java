@@ -25,12 +25,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project401java">
         <activity
+            android:name=".entryData"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true" />
         <activity
             android:name=".Profile"
             android:exported="true"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".Complain"
             android:exported="true" />

@@ -4,10 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -31,14 +33,15 @@ Handler handler;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        setTitle("Login");
-        Amplify.Auth.signIn(
-                "username",
-                "password",
-                result -> Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete"),
-                error -> Log.e("AuthQuickstart", error.toString())
-        );
         configureAmplify();
+        setTitle("Login");
+//        Amplify.Auth.signIn(
+//                "username",
+//                "password",
+//                result -> Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete"),
+//                error -> Log.e("AuthQuickstart", error.toString())
+//        );
+
         login = (Button) findViewById(R.id.save);
         signup = (Button) findViewById(R.id.signup_button);
         userName = (EditText) findViewById(R.id.username);
@@ -67,6 +70,8 @@ Handler handler;
                             goToMain.putExtra("username",username);
                             startActivity(goToMain);
                         }else{
+                            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(Login.this);
+                            sharedPreferences.edit().putString("username",username).apply();
                             Intent goToMain = new Intent(Login.this, MainActivity.class);
                             goToMain.putExtra("username",username);
                             startActivity(goToMain);
@@ -106,4 +111,5 @@ Handler handler;
             Log.e("is sucsess","onCreate: Failed to initialize Amplify plugins => " + exception.toString());
         }
     }
+
 }
