@@ -1,6 +1,7 @@
 package com.example.project401_java;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +41,19 @@ public class ComplainAdpter extends RecyclerView.Adapter<ComplainAdpter.Complain
 
         desc.setText(holder.complain.getDescription());
         state.setText(holder.complain.getState());
+        holder.constraintLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("adpterrrrrrrrrrrrrrrrrrr");
+                Intent intent= new Intent(view.getContext(),ProblemDetails.class);
+                intent.putExtra("des",holder.complain.getDescription());
+                intent.putExtra("file",holder.complain.getFileUrl());
+                intent.putExtra("state",holder.complain.getState());
+                intent.putExtra("username",holder.complain.getUsername());
+                view.getContext().startActivity(intent);
+
+            }
+        });
     }
 
     @Override
@@ -51,11 +65,13 @@ public class ComplainAdpter extends RecyclerView.Adapter<ComplainAdpter.Complain
 
         public Complain complain;
         public View itemView;
+        public ConstraintLayout constraintLayout;
 
         public ComplainViewHolder(@NonNull View itemView) {
             super(itemView);
             this.itemView=itemView;
 
+            constraintLayout = itemView.findViewById(R.id.fragment);
         }
     }
 
