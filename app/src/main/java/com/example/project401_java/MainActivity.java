@@ -25,6 +25,7 @@ import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.Category;
 import com.amplifyframework.datastore.generated.model.Complain;
 import com.amplifyframework.datastore.generated.model.User;
+import com.amplifyframework.storage.s3.AWSS3StoragePlugin;
 
 public class MainActivity extends AppCompatActivity {
 Button logOut;
@@ -41,6 +42,7 @@ User user;
         try {
             Amplify.addPlugin(new AWSApiPlugin());
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
+            Amplify.addPlugin(new AWSS3StoragePlugin());
             Amplify.configure(getApplicationContext());
             Log.i("MyAmplifyApp", "Initialized Amplify");
         } catch (AmplifyException error) {
@@ -109,7 +111,9 @@ User user;
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         MenuItem item = menu.findItem(R.id.my);
-        if (AWSMobileClient.getInstance().getUsername().equals("admin")) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(com.example.project401_java.MainActivity.this);
+        String username = sharedPreferences.getString("username","username");
+        if (username.equals("admin")) {
             item.setTitle("");
         }else {
             item.setTitle("profile");

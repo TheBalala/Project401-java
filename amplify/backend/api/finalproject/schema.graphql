@@ -5,26 +5,20 @@ type User @model {
   password: String
   auth: String
   Complain: [Complain] @connection(keyName: "byComplain", fields: ["username"])
-
 }
-type Complain @model @key(name: "byComplain", fields: ["categoryName","username","cityName","Description","State"]){
+type Complain @model @key(name: "byComplain", fields: ["categoryName","username","cityName","Description","State","fileUrl"]){
   id: ID!
   Description: String!
   categoryName: String
   username: String
   cityName: String
   State: String!
-
-
+  fileUrl: String
 }
 type City @model  {
   id: ID!
   cityName: String
   Category: [Category] @connection(keyName: "byComplain", fields: ["cityName"])
-
-
-
-
 }
 
 type Category @model @key(name: "byComplain", fields: ["categoryName","cityName"]) {

@@ -19,7 +19,7 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 /** This is an auto generated class representing the Complain type in your schema. */
 @SuppressWarnings("all")
 @ModelConfig(pluralName = "Complains")
-@Index(name = "byComplain", fields = {"categoryName","username","cityName","Description","State"})
+@Index(name = "byComplain", fields = {"categoryName","username","cityName","Description","State","fileUrl"})
 public final class Complain implements Model {
   public static final QueryField ID = field("Complain", "id");
   public static final QueryField DESCRIPTION = field("Complain", "Description");
@@ -27,12 +27,14 @@ public final class Complain implements Model {
   public static final QueryField USERNAME = field("Complain", "username");
   public static final QueryField CITY_NAME = field("Complain", "cityName");
   public static final QueryField STATE = field("Complain", "State");
+  public static final QueryField FILE_URL = field("Complain", "fileUrl");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="String", isRequired = true) String Description;
   private final @ModelField(targetType="String") String categoryName;
   private final @ModelField(targetType="String") String username;
   private final @ModelField(targetType="String") String cityName;
   private final @ModelField(targetType="String", isRequired = true) String State;
+  private final @ModelField(targetType="String") String fileUrl;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   public String getId() {
@@ -59,6 +61,10 @@ public final class Complain implements Model {
       return State;
   }
   
+  public String getFileUrl() {
+      return fileUrl;
+  }
+  
   public Temporal.DateTime getCreatedAt() {
       return createdAt;
   }
@@ -67,13 +73,14 @@ public final class Complain implements Model {
       return updatedAt;
   }
   
-  private Complain(String id, String Description, String categoryName, String username, String cityName, String State) {
+  private Complain(String id, String Description, String categoryName, String username, String cityName, String State, String fileUrl) {
     this.id = id;
     this.Description = Description;
     this.categoryName = categoryName;
     this.username = username;
     this.cityName = cityName;
     this.State = State;
+    this.fileUrl = fileUrl;
   }
   
   @Override
@@ -90,6 +97,7 @@ public final class Complain implements Model {
               ObjectsCompat.equals(getUsername(), complain.getUsername()) &&
               ObjectsCompat.equals(getCityName(), complain.getCityName()) &&
               ObjectsCompat.equals(getState(), complain.getState()) &&
+              ObjectsCompat.equals(getFileUrl(), complain.getFileUrl()) &&
               ObjectsCompat.equals(getCreatedAt(), complain.getCreatedAt()) &&
               ObjectsCompat.equals(getUpdatedAt(), complain.getUpdatedAt());
       }
@@ -104,6 +112,7 @@ public final class Complain implements Model {
       .append(getUsername())
       .append(getCityName())
       .append(getState())
+      .append(getFileUrl())
       .append(getCreatedAt())
       .append(getUpdatedAt())
       .toString()
@@ -120,6 +129,7 @@ public final class Complain implements Model {
       .append("username=" + String.valueOf(getUsername()) + ", ")
       .append("cityName=" + String.valueOf(getCityName()) + ", ")
       .append("State=" + String.valueOf(getState()) + ", ")
+      .append("fileUrl=" + String.valueOf(getFileUrl()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
       .append("}")
@@ -155,6 +165,7 @@ public final class Complain implements Model {
       null,
       null,
       null,
+      null,
       null
     );
   }
@@ -165,7 +176,8 @@ public final class Complain implements Model {
       categoryName,
       username,
       cityName,
-      State);
+      State,
+      fileUrl);
   }
   public interface DescriptionStep {
     StateStep description(String description);
@@ -183,6 +195,7 @@ public final class Complain implements Model {
     BuildStep categoryName(String categoryName);
     BuildStep username(String username);
     BuildStep cityName(String cityName);
+    BuildStep fileUrl(String fileUrl);
   }
   
 
@@ -193,6 +206,7 @@ public final class Complain implements Model {
     private String categoryName;
     private String username;
     private String cityName;
+    private String fileUrl;
     @Override
      public Complain build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
@@ -203,7 +217,8 @@ public final class Complain implements Model {
           categoryName,
           username,
           cityName,
-          State);
+          State,
+          fileUrl);
     }
     
     @Override
@@ -238,6 +253,12 @@ public final class Complain implements Model {
         return this;
     }
     
+    @Override
+     public BuildStep fileUrl(String fileUrl) {
+        this.fileUrl = fileUrl;
+        return this;
+    }
+    
     /** 
      * WARNING: Do not set ID when creating a new object. Leave this blank and one will be auto generated for you.
      * This should only be set when referring to an already existing object.
@@ -261,13 +282,14 @@ public final class Complain implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String description, String categoryName, String username, String cityName, String state) {
+    private CopyOfBuilder(String id, String description, String categoryName, String username, String cityName, String state, String fileUrl) {
       super.id(id);
       super.description(description)
         .state(state)
         .categoryName(categoryName)
         .username(username)
-        .cityName(cityName);
+        .cityName(cityName)
+        .fileUrl(fileUrl);
     }
     
     @Override
@@ -293,6 +315,11 @@ public final class Complain implements Model {
     @Override
      public CopyOfBuilder cityName(String cityName) {
       return (CopyOfBuilder) super.cityName(cityName);
+    }
+    
+    @Override
+     public CopyOfBuilder fileUrl(String fileUrl) {
+      return (CopyOfBuilder) super.fileUrl(fileUrl);
     }
   }
   

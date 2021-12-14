@@ -28,6 +28,7 @@ Button signup;
 EditText userName;
 EditText password;
 User userForAuth;
+String username1;
 Handler handler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +36,7 @@ Handler handler;
         setContentView(R.layout.activity_login);
         configureAmplify();
         setTitle("Login");
-//        Amplify.Auth.signIn(
-//                "username",
-//                "password",
-//                result -> Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete"),
-//                error -> Log.e("AuthQuickstart", error.toString())
-//        );
+
 
         login = (Button) findViewById(R.id.save);
         signup = (Button) findViewById(R.id.signup_button);
@@ -65,21 +61,23 @@ Handler handler;
                     @Override
                     public boolean handleMessage(@NonNull Message message) {
                         if(userForAuth.getAuth().equals("ADMIN") ){
+                            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(Login.this);
+                            sharedPreferences.edit().putString("username",username1).apply();
+
                             System.out.println("ADMINNNNNNNNNNN "+userForAuth.getAuth());
                             Intent goToMain = new Intent(Login.this, MainActivity.class);
-                            goToMain.putExtra("username",username);
                             startActivity(goToMain);
                         }else{
                             SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(Login.this);
-                            sharedPreferences.edit().putString("username",username).apply();
+                            sharedPreferences.edit().putString("username",username1).apply();
                             Intent goToMain = new Intent(Login.this, MainActivity.class);
-                            goToMain.putExtra("username",username);
                             startActivity(goToMain);
                             System.out.println("Roleuserrrrrrrrrr "+userForAuth.getAuth());
 
                         }
                         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(Login.this);
                         sharedPreferences.edit().putString("isAuthA",userForAuth.getAuth()).apply();
+                        sharedPreferences.edit().putString("username",username1).apply();
                         return false;
                     }
                 });
@@ -95,6 +93,7 @@ Handler handler;
                                     userForAuth = user;
                                     Log.i("MyAmplifyApp", user.getUsername());
                                 }
+                                username1 = userName.getText().toString();
                                 handler.sendEmptyMessage(1);
 
                             },
