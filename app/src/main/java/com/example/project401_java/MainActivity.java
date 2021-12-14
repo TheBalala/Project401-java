@@ -37,6 +37,7 @@ User user;
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+        logOut = findViewById(R.id.logoutuser);
 
         try {
             Amplify.addPlugin(new AWSApiPlugin());
@@ -52,7 +53,14 @@ User user;
                 result -> Log.i("AmplifyQuickstart", result.toString()),
                 error -> Log.e("AmplifyQuickstart", error.toString())
         );
-
+        saveCat = findViewById(R.id.sacCat);
+        saveCat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, entryData.class);
+                startActivity(intent);
+            }
+        });
 
         Button login = (Button) findViewById(R.id.login);
         login.setOnClickListener(new View.OnClickListener() {
