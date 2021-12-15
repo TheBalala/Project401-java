@@ -53,7 +53,6 @@ User user;
                 error -> Log.e("AmplifyQuickstart", error.toString())
         );
 
-
         Button login = (Button) findViewById(R.id.login);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +61,14 @@ User user;
                startActivity(intent);
             }
         });
-
+        Button logind = (Button) findViewById(R.id.button2);
+        logind.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,SignUp.class);
+                startActivity(intent);
+            }
+        });
         Button city = (Button) findViewById(R.id.city);
         city.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +77,6 @@ User user;
                 startActivity(intent);
             }
         });
-
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -105,7 +110,7 @@ User user;
         MenuItem item = menu.findItem(R.id.my);
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(com.example.project401_java.MainActivity.this);
         String username = sharedPreferences.getString("username","username");
-        if (username.equals("admin")) {
+        if (username.equals("adman")) {
             item.setTitle("");
         }else {
             item.setTitle("profile");

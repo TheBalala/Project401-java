@@ -19,7 +19,7 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 /** This is an auto generated class representing the Complain type in your schema. */
 @SuppressWarnings("all")
 @ModelConfig(pluralName = "Complains")
-@Index(name = "byComplain", fields = {"categoryName","username","cityName","Description","State","fileUrl"})
+@Index(name = "byComplain", fields = {"categoryName","username","cityName","Description","State","fileUrl","lon","lat"})
 public final class Complain implements Model {
   public static final QueryField ID = field("Complain", "id");
   public static final QueryField DESCRIPTION = field("Complain", "Description");
@@ -28,6 +28,8 @@ public final class Complain implements Model {
   public static final QueryField CITY_NAME = field("Complain", "cityName");
   public static final QueryField STATE = field("Complain", "State");
   public static final QueryField FILE_URL = field("Complain", "fileUrl");
+  public static final QueryField LON = field("Complain", "lon");
+  public static final QueryField LAT = field("Complain", "lat");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="String", isRequired = true) String Description;
   private final @ModelField(targetType="String") String categoryName;
@@ -35,6 +37,8 @@ public final class Complain implements Model {
   private final @ModelField(targetType="String") String cityName;
   private final @ModelField(targetType="String", isRequired = true) String State;
   private final @ModelField(targetType="String") String fileUrl;
+  private final @ModelField(targetType="Float") Double lon;
+  private final @ModelField(targetType="Float") Double lat;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   public String getId() {
@@ -65,6 +69,14 @@ public final class Complain implements Model {
       return fileUrl;
   }
   
+  public Double getLon() {
+      return lon;
+  }
+  
+  public Double getLat() {
+      return lat;
+  }
+  
   public Temporal.DateTime getCreatedAt() {
       return createdAt;
   }
@@ -73,7 +85,7 @@ public final class Complain implements Model {
       return updatedAt;
   }
   
-  private Complain(String id, String Description, String categoryName, String username, String cityName, String State, String fileUrl) {
+  private Complain(String id, String Description, String categoryName, String username, String cityName, String State, String fileUrl, Double lon, Double lat) {
     this.id = id;
     this.Description = Description;
     this.categoryName = categoryName;
@@ -81,6 +93,8 @@ public final class Complain implements Model {
     this.cityName = cityName;
     this.State = State;
     this.fileUrl = fileUrl;
+    this.lon = lon;
+    this.lat = lat;
   }
   
   @Override
@@ -98,6 +112,8 @@ public final class Complain implements Model {
               ObjectsCompat.equals(getCityName(), complain.getCityName()) &&
               ObjectsCompat.equals(getState(), complain.getState()) &&
               ObjectsCompat.equals(getFileUrl(), complain.getFileUrl()) &&
+              ObjectsCompat.equals(getLon(), complain.getLon()) &&
+              ObjectsCompat.equals(getLat(), complain.getLat()) &&
               ObjectsCompat.equals(getCreatedAt(), complain.getCreatedAt()) &&
               ObjectsCompat.equals(getUpdatedAt(), complain.getUpdatedAt());
       }
@@ -113,6 +129,8 @@ public final class Complain implements Model {
       .append(getCityName())
       .append(getState())
       .append(getFileUrl())
+      .append(getLon())
+      .append(getLat())
       .append(getCreatedAt())
       .append(getUpdatedAt())
       .toString()
@@ -130,6 +148,8 @@ public final class Complain implements Model {
       .append("cityName=" + String.valueOf(getCityName()) + ", ")
       .append("State=" + String.valueOf(getState()) + ", ")
       .append("fileUrl=" + String.valueOf(getFileUrl()) + ", ")
+      .append("lon=" + String.valueOf(getLon()) + ", ")
+      .append("lat=" + String.valueOf(getLat()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
       .append("}")
@@ -147,20 +167,12 @@ public final class Complain implements Model {
    * in a relationship.
    * @param id the id of the existing item this instance will represent
    * @return an instance of this model with only ID populated
-   * @throws IllegalArgumentException Checks that ID is in the proper format
    */
   public static Complain justId(String id) {
-    try {
-      UUID.fromString(id); // Check that ID is in the UUID format - if not an exception is thrown
-    } catch (Exception exception) {
-      throw new IllegalArgumentException(
-              "Model IDs must be unique in the format of UUID. This method is for creating instances " +
-              "of an existing object with only its ID field for sending as a mutation parameter. When " +
-              "creating a new object, use the standard builder method and leave the ID field blank."
-      );
-    }
     return new Complain(
       id,
+      null,
+      null,
       null,
       null,
       null,
@@ -177,7 +189,9 @@ public final class Complain implements Model {
       username,
       cityName,
       State,
-      fileUrl);
+      fileUrl,
+      lon,
+      lat);
   }
   public interface DescriptionStep {
     StateStep description(String description);
@@ -191,11 +205,13 @@ public final class Complain implements Model {
 
   public interface BuildStep {
     Complain build();
-    BuildStep id(String id) throws IllegalArgumentException;
+    BuildStep id(String id);
     BuildStep categoryName(String categoryName);
     BuildStep username(String username);
     BuildStep cityName(String cityName);
     BuildStep fileUrl(String fileUrl);
+    BuildStep lon(Double lon);
+    BuildStep lat(Double lat);
   }
   
 
@@ -207,6 +223,8 @@ public final class Complain implements Model {
     private String username;
     private String cityName;
     private String fileUrl;
+    private Double lon;
+    private Double lat;
     @Override
      public Complain build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
@@ -218,7 +236,9 @@ public final class Complain implements Model {
           username,
           cityName,
           State,
-          fileUrl);
+          fileUrl,
+          lon,
+          lat);
     }
     
     @Override
@@ -259,37 +279,40 @@ public final class Complain implements Model {
         return this;
     }
     
+    @Override
+     public BuildStep lon(Double lon) {
+        this.lon = lon;
+        return this;
+    }
+    
+    @Override
+     public BuildStep lat(Double lat) {
+        this.lat = lat;
+        return this;
+    }
+    
     /** 
-     * WARNING: Do not set ID when creating a new object. Leave this blank and one will be auto generated for you.
-     * This should only be set when referring to an already existing object.
      * @param id id
      * @return Current Builder instance, for fluent method chaining
-     * @throws IllegalArgumentException Checks that ID is in the proper format
      */
-    public BuildStep id(String id) throws IllegalArgumentException {
+    public BuildStep id(String id) {
         this.id = id;
-        
-        try {
-            UUID.fromString(id); // Check that ID is in the UUID format - if not an exception is thrown
-        } catch (Exception exception) {
-          throw new IllegalArgumentException("Model IDs must be unique in the format of UUID.",
-                    exception);
-        }
-        
         return this;
     }
   }
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String description, String categoryName, String username, String cityName, String state, String fileUrl) {
+    private CopyOfBuilder(String id, String description, String categoryName, String username, String cityName, String state, String fileUrl, Double lon, Double lat) {
       super.id(id);
       super.description(description)
         .state(state)
         .categoryName(categoryName)
         .username(username)
         .cityName(cityName)
-        .fileUrl(fileUrl);
+        .fileUrl(fileUrl)
+        .lon(lon)
+        .lat(lat);
     }
     
     @Override
@@ -320,6 +343,16 @@ public final class Complain implements Model {
     @Override
      public CopyOfBuilder fileUrl(String fileUrl) {
       return (CopyOfBuilder) super.fileUrl(fileUrl);
+    }
+    
+    @Override
+     public CopyOfBuilder lon(Double lon) {
+      return (CopyOfBuilder) super.lon(lon);
+    }
+    
+    @Override
+     public CopyOfBuilder lat(Double lat) {
+      return (CopyOfBuilder) super.lat(lat);
     }
   }
   

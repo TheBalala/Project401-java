@@ -43,7 +43,7 @@ public class VerificationActivity extends AppCompatActivity {
                 confirmationNumber,
                 success -> {
                     Log.i("varfy check", "verification: succeeded" + success.toString());
-                    Intent goToSignIn = new Intent(VerificationActivity.this, Login.class);
+                    Intent goToSignIn = new Intent(VerificationActivity.this, MainActivity.class);
                     goToSignIn.putExtra("username", username);
                     startActivity(goToSignIn);
                     buld(username,password,email);
@@ -58,7 +58,7 @@ public class VerificationActivity extends AppCompatActivity {
                 .username(username)
                 .email(email)
                 .password(password)
-                .auth("ROLE_USER")
+                .auth("ADMIN")
                 .build();
 
         Amplify.API.mutate(ModelMutation.create(user),

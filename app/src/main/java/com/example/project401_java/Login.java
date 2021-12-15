@@ -11,7 +11,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -21,6 +20,7 @@ import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.User;
+import com.amplifyframework.storage.s3.AWSS3StoragePlugin;
 
 public class Login extends AppCompatActivity {
 Button login;
@@ -38,9 +38,9 @@ Handler handler;
         setTitle("Login");
 
 
-        login = (Button) findViewById(R.id.save);
+        login = (Button) findViewById(R.id.loged);
         signup = (Button) findViewById(R.id.signup_button);
-        userName = (EditText) findViewById(R.id.username);
+        userName = (EditText) findViewById(R.id.hy);
         password = (EditText) findViewById(R.id.password);
 
         login.setOnClickListener(view -> {
@@ -105,8 +105,9 @@ Handler handler;
     private void configureAmplify() {
         // configure Amplify plugins
         try {
-            Amplify.addPlugin(new AWSApiPlugin());
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
+            Amplify.addPlugin(new AWSApiPlugin());
+            Amplify.addPlugin(new AWSS3StoragePlugin());
             Amplify.configure(getApplicationContext());
         } catch (AmplifyException exception) {
             Log.e("is sucsess","onCreate: Failed to initialize Amplify plugins => " + exception.toString());
