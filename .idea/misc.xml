@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/user/Desktop/project401/Project401-java/app/src/main/res/layout/activity_login.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/user/Desktop/project401/Project401-java/app/src/main/res/layout/activity_sign_up.xml" value="0.25416666666666665" />
+        <entry key="app/src/main/res/layout/activity_admain_complain_recycler_view.xml" value="0.12291666666666666" />
         <entry key="app/src/main/res/layout/activity_admin.xml" value="0.10099186160514097" />
         <entry key="app/src/main/res/layout/activity_category.xml" value="0.1052519828816255" />
         <entry key="app/src/main/res/layout/activity_city.xml" value="0.1" />
@@ -12,9 +13,11 @@
         <entry key="app/src/main/res/layout/activity_entry_data.xml" value="0.28637017795492775" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.2022039750933558" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.14907407407407408" />
+        <entry key="app/src/main/res/layout/activity_problem_details.xml" value="0.16548160846355023" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.16770833333333332" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_verification.xml" value="0.2888867246732248" />
+        <entry key="app/src/main/res/layout/fragment_complain2.xml" value="0.1" />
       </map>
     </option>
   </component>

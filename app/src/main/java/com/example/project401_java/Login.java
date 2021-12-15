@@ -11,7 +11,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -21,6 +20,7 @@ import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.User;
+import com.amplifyframework.storage.s3.AWSS3StoragePlugin;
 
 public class Login extends AppCompatActivity {
 Button login;
@@ -28,6 +28,7 @@ Button signup;
 EditText userName;
 EditText password;
 User userForAuth;
+String username1;
 Handler handler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,16 +36,11 @@ Handler handler;
         setContentView(R.layout.activity_login);
         configureAmplify();
         setTitle("Login");
-//        Amplify.Auth.signIn(
-//                "username",
-//                "password",
-//                result -> Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete"),
-//                error -> Log.e("AuthQuickstart", error.toString())
-//        );
 
-        login = (Button) findViewById(R.id.save);
+
+        login = (Button) findViewById(R.id.loged1);
         signup = (Button) findViewById(R.id.signup_button);
-        userName = (EditText) findViewById(R.id.username);
+        userName = (EditText) findViewById(R.id.hy);
         password = (EditText) findViewById(R.id.password);
 
         login.setOnClickListener(view -> {
@@ -64,20 +60,24 @@ Handler handler;
                 new Handler.Callback() {
                     @Override
                     public boolean handleMessage(@NonNull Message message) {
-                        if(userForAuth.getAuth().equals("ADMIN") ){
+                        if(username1.equals("admin")){
+                            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(Login.this);
+                            sharedPreferences.edit().putString("username",username1).apply();
+
                             System.out.println("ADMINNNNNNNNNNN "+userForAuth.getAuth());
-                            Intent goToMain = new Intent(Login.this, Admin.class);
-                            goToMain.putExtra("username",username);
+                            Intent goToMain = new Intent(Login.this, MainActivity.class);
                             startActivity(goToMain);
                         }else{
                             SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(Login.this);
-                            sharedPreferences.edit().putString("username",username).apply();
+                            sharedPreferences.edit().putString("username",username1).apply();
                             Intent goToMain = new Intent(Login.this, MainActivity.class);
-                            goToMain.putExtra("username",username);
                             startActivity(goToMain);
                             System.out.println("Roleuserrrrrrrrrr "+userForAuth.getAuth());
 
                         }
+                        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(Login.this);
+                        sharedPreferences.edit().putString("isAuthA",userForAuth.getAuth()).apply();
+                        sharedPreferences.edit().putString("username",username1).apply();
                         return false;
                     }
                 });
@@ -91,6 +91,8 @@ Handler handler;
                             response -> {
                                 for (User user : response.getData()) {
                                     userForAuth = user;
+                                    username1 = userName.getText().toString();
+
                                     Log.i("MyAmplifyApp", user.getUsername());
                                 }
                                 handler.sendEmptyMessage(1);
@@ -104,8 +106,11 @@ Handler handler;
     private void configureAmplify() {
         // configure Amplify plugins
         try {
-            Amplify.addPlugin(new AWSApiPlugin());
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
+
+            Amplify.addPlugin(new AWSApiPlugin());
+
+            Amplify.addPlugin(new AWSS3StoragePlugin());
             Amplify.configure(getApplicationContext());
         } catch (AmplifyException exception) {
             Log.e("is sucsess","onCreate: Failed to initialize Amplify plugins => " + exception.toString());

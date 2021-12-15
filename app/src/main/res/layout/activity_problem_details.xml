@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProblemDetails">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        android:layout_width="377dp"
+        android:layout_height="641dp"
+        android:layout_margin="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="#831a19"
+        app:strokeWidth="3dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="619dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="150dp"
+                android:layout_marginTop="10dp"
+                android:text="Title"
+                android:textAppearance="?attr/textAppearanceHeadline6" />
+
+            <TextView
+                android:id="@+id/userss"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="8dp"
+                android:text="user"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary" />
+            <!-- Media -->
+
+            <ImageView
+                android:id="@+id/ali"
+                android:layout_width="347dp"
+                android:layout_height="187dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/image1"
+
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="168dp"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+
+                <TextView
+                    android:id="@+id/descr"
+                    android:layout_width="360dp"
+                    android:layout_height="79dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Description"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="#000"
+
+                    />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:id="@+id/states"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary" />
+
+            </LinearLayout>
+
+            <!-- Buttons -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/lo"
+                    style="?attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="Location" />
+
+                <com.google.android.material.button.MaterialButton
+                    style="?attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Done" />
+            </LinearLayout>
+
+            <RadioGroup
+                android:id="@+id/group"
+                android:layout_width="wrap_content"
+                android:layout_height="128dp">
+
+
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:transitionName="In Progress"
+                    android:layout_width="120dp"
+                    android:layout_height="64dp"
+                    android:onClick="checkButton"
+                    android:text="In Progress" />
+
+                <RadioButton
+                    android:transitionName="Finish"
+
+                    android:id="@+id/radioButton3"
+                    android:layout_width="120dp"
+                    android:layout_height="64dp"
+                    android:onClick="checkButton"
+                    android:text="Finish" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

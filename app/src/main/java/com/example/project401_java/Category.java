@@ -11,7 +11,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
+import com.amplifyframework.datastore.generated.model.User;
+
 public class Category extends AppCompatActivity implements View.OnClickListener {
+    User userForAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,17 +29,31 @@ public class Category extends AppCompatActivity implements View.OnClickListener 
         water.setOnClickListener(this);
         street.setOnClickListener(this);
         others.setOnClickListener(this);
+
+
     }
 
     @Override
     public void onClick(View v) {
+        SharedPreferences sharedPreferences1= PreferenceManager.getDefaultSharedPreferences(Category.this);
+        String username = sharedPreferences1.getString("isAuthA", "username");
+        System.out.println("ewfwefwefawefwefawefwef " + username);
+
         RelativeLayout button = findViewById(v.getId());
 
         String category = button.getTransitionName();
-        System.out.println("dddddddddddddddddddddddn "+category);
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(Category.this);
-        sharedPreferences.edit().putString("category",category).apply();
-        Intent intent = new Intent(Category.this,Complain.class);
-        startActivity(intent);
+        sharedPreferences.edit().putString("category", category).apply();
+        Intent intent;
+        if (username.equals("ADMIN")) {
+            intent = new Intent(Category.this, AdmainComplainRecyclerVIew.class);
+            startActivity(intent);
+        } else {
+            intent = new Intent(Category.this, Complain.class);
+            startActivity(intent);
+        }
+
+
     }
 }
+
