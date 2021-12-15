@@ -75,7 +75,7 @@
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#EDEDCC">
+                android:background="#f1f2f3">
 
                 <ImageView
                     android:src="@drawable/amman"
@@ -117,7 +117,7 @@
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#EDEDCC">
+                    android:background="#f1f2f3">
 
                     <ImageView
                         android:src="@drawable/tafilah"
@@ -158,7 +158,7 @@
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#EDEDCC">
+                android:background="#f1f2f3">
 
                 <ImageView
                     android:src="@drawable/karak"
@@ -198,7 +198,7 @@
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#EDEDCC">
+                android:background="#f1f2f3">
 
                 <ImageView
                     android:src="@drawable/aqaba"
@@ -237,7 +237,7 @@
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#EDEDCC">
+                    android:background="#f1f2f3">
 
                     <ImageView
                         android:layout_width="78dp"
@@ -276,7 +276,7 @@
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#EDEDCC">
+                    android:background="#f1f2f3">
 
 
                     <ImageView
@@ -316,7 +316,7 @@
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#EDEDCC">
+                    android:background="#f1f2f3">
 
                     <ImageView
                         android:src="@drawable/jerash"
@@ -355,7 +355,7 @@
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#EDEDCC">
+                    android:background="#f1f2f3">
 
                     <ImageView
                         android:src="@drawable/maan"
@@ -395,7 +395,7 @@
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#EDEDCC">
+                    android:background="#f1f2f3">
 
                     <ImageView
                         android:src="@drawable/madaba"
@@ -434,7 +434,7 @@
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#EDEDCC">
+                    android:background="#f1f2f3">
 
                     <ImageView
                         android:src="@drawable/mefraq"
@@ -473,7 +473,7 @@
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#EDEDCC">
+                    android:background="#f1f2f3">
 
                     <ImageView
                         android:src="@drawable/balqa"
@@ -512,7 +512,7 @@
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#EDEDCC">
+                    android:background="#f1f2f3">
 
                     <ImageView
                         android:src="@drawable/zarqa"
