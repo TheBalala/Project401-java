@@ -59,7 +59,7 @@ public class AdmainComplainRecyclerVIew extends AppCompatActivity {
 
         createTasksList(cityName);
         try {
-            Thread.sleep(2000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -89,7 +89,7 @@ public class AdmainComplainRecyclerVIew extends AppCompatActivity {
 
     }
     public void buildRecycl (){
-        recyclerView = findViewById(R.id.allTaskRecyclerView);
+        recyclerView = findViewById(R.id.allTaskRecyclerView1);
         recyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(AdmainComplainRecyclerVIew.this);
         mAdapter = new ComplainAdpter(listComplain);

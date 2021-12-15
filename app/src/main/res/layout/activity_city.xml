@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cardview_dark_background"
+    android:background="#831a19"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -57,44 +57,45 @@
 
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/amman"
-android:transitionName="amman"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:elevation="6dp"
-                app:cardElevation="60dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
+            android:id="@+id/amman"
+            android:transitionName="amman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:elevation="6dp"
+            app:cardElevation="60dp"
+            app:cardCornerRadius="12dp"
+            android:layout_margin="12dp"
+            >
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#EDEDCC">
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#EDEDCC">
 
-                    <ImageView
-                        android:src="@drawable/amman"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        />
+                <ImageView
+                    android:src="@drawable/amman"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    />
 
-                    <TextView
-                        android:layout_marginTop="3dp"
-                        android:textColor="#191919"
-                        android:textSize="20sp"
-                        android:text="Amman"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
+                <TextView
+                    android:layout_marginTop="3dp"
+                    android:textColor="#191919"
+                    android:textSize="20sp"
+                    android:text="Amman"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
+
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/tafile"
@@ -138,79 +139,79 @@ android:transitionName="amman"
 
             <androidx.cardview.widget.CardView
 
-                android:id="@+id/karak"
-                android:transitionName="karak"
+            android:id="@+id/karak"
+            android:transitionName="karak"
 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:elevation="6dp"
-                app:cardElevation="60dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:elevation="6dp"
+            app:cardElevation="60dp"
+            app:cardCornerRadius="12dp"
+            android:layout_margin="12dp"
+            >
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#EDEDCC">
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#EDEDCC">
 
-                    <ImageView
-                        android:src="@drawable/karak"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"/>
+                <ImageView
+                    android:src="@drawable/karak"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"/>
 
-                    <TextView
-                        android:layout_marginTop="3dp"
-                        android:textColor="#191919"
-                        android:textSize="20sp"
-                        android:text="Karak"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_marginTop="3dp"
+                    android:textColor="#191919"
+                    android:textSize="20sp"
+                    android:text="Karak"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
 
-                </LinearLayout>
+            </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/aqaba"
-                android:transitionName="aqaba"
+            android:id="@+id/aqaba"
+            android:transitionName="aqaba"
 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:elevation="6dp"
-                app:cardElevation="60dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:elevation="6dp"
+            app:cardElevation="60dp"
+            app:cardCornerRadius="12dp"
+            android:layout_margin="12dp"
+            >
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#EDEDCC">
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#EDEDCC">
 
-                    <ImageView
-                        android:src="@drawable/aqaba"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"/>
+                <ImageView
+                    android:src="@drawable/aqaba"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"/>
 
-                    <TextView
-                        android:layout_marginTop="3dp"
-                        android:textColor="#191919"
-                        android:textSize="20sp"
-                        android:text="Aqaba"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_marginTop="3dp"
+                    android:textColor="#191919"
+                    android:textSize="20sp"
+                    android:text="Aqaba"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
                 </LinearLayout>
 
@@ -250,7 +251,6 @@ android:transitionName="amman"
                         android:text="Irbid"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
-
 
                 </LinearLayout>
 
@@ -449,7 +449,6 @@ android:transitionName="amman"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
-
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -489,6 +488,7 @@ android:transitionName="amman"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
+
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -526,6 +526,7 @@ android:transitionName="amman"
                         android:text="Zarqa"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
+
 
                 </LinearLayout>
 

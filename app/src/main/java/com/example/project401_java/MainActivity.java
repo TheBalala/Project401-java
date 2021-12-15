@@ -25,6 +25,7 @@ import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.Category;
 import com.amplifyframework.datastore.generated.model.Complain;
 import com.amplifyframework.datastore.generated.model.User;
+import com.amplifyframework.storage.s3.AWSS3StoragePlugin;
 
 public class MainActivity extends AppCompatActivity {
 Button logOut;
@@ -36,11 +37,11 @@ User user;
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        logOut = findViewById(R.id.logoutuser);
 
         try {
             Amplify.addPlugin(new AWSApiPlugin());
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
+            Amplify.addPlugin(new AWSS3StoragePlugin());
             Amplify.configure(getApplicationContext());
             Log.i("MyAmplifyApp", "Initialized Amplify");
         } catch (AmplifyException error) {
@@ -51,23 +52,12 @@ User user;
                 result -> Log.i("AmplifyQuickstart", result.toString()),
                 error -> Log.e("AmplifyQuickstart", error.toString())
         );
-        saveCat = findViewById(R.id.sacCat);
-        saveCat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, entryData.class);
-                startActivity(intent);
-            }
-        });
+        if(!AWSMobileClient.getInstance().isSignedIn()){
+            Intent intent = new Intent(MainActivity.this, Login.class);
+            startActivity(intent);
+        }
 
-        Button login = (Button) findViewById(R.id.login);
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,Login.class);
-               startActivity(intent);
-            }
-        });
+
 
         Button city = (Button) findViewById(R.id.city);
         city.setOnClickListener(new View.OnClickListener() {
@@ -77,7 +67,6 @@ User user;
                 startActivity(intent);
             }
         });
-
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -101,6 +90,8 @@ User user;
                         () -> Log.i("AuthQuickstart", "Signed out globally"),
                         error -> Log.e("AuthQuickstart", error.toString())
                 );
+                Intent intent = new Intent(MainActivity.this,Login.class);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -109,7 +100,9 @@ User user;
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         MenuItem item = menu.findItem(R.id.my);
-        if (AWSMobileClient.getInstance().getUsername().equals("admin")) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(com.example.project401_java.MainActivity.this);
+        String username = sharedPreferences.getString("username","username");
+        if (username.equals("adman")) {
             item.setTitle("");
         }else {
             item.setTitle("profile");
