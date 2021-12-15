@@ -46,6 +46,7 @@ EditText password;
                 password,
                 AuthSignUpOptions.builder()
                         .userAttribute(AuthUserAttributeKey.email(), email)
+
                         .build(),
                 success -> {
                     Log.i("signup", "signUp successful: " + success.toString());
