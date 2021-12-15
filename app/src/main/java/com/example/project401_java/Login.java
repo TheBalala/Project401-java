@@ -38,7 +38,7 @@ Handler handler;
         setTitle("Login");
 
 
-        login = (Button) findViewById(R.id.loged);
+        login = (Button) findViewById(R.id.loged1);
         signup = (Button) findViewById(R.id.signup_button);
         userName = (EditText) findViewById(R.id.hy);
         password = (EditText) findViewById(R.id.password);

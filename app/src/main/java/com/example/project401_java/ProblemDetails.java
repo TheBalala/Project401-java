@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -15,14 +16,20 @@ import android.graphics.BitmapFactory;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.amplifyframework.api.graphql.model.ModelMutation;
+import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.core.Amplify;
 
 import java.io.File;
@@ -32,6 +39,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.generated.model.Complain;
 
 import java.io.File;
 
@@ -41,7 +49,10 @@ public class ProblemDetails extends AppCompatActivity {
     private ImageView img;
     private String key;
 
-
+RadioGroup status;
+RadioButton state;
+Complain comp;
+Handler handler;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +69,17 @@ public class ProblemDetails extends AppCompatActivity {
                     return false;
                 }
             });
+
             getFileFromApi();
+
+status = findViewById(R.id.group);
+status.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        RadioButton r = findViewById(v.getId());
+        r.toggle();
+    }
+});
 
             Double altitude = getIntent().getDoubleExtra("lat", 0);
             Double longitude = getIntent().getDoubleExtra("lon", 0);
@@ -111,4 +132,42 @@ public class ProblemDetails extends AppCompatActivity {
             sd.setText(getIntent().getStringExtra("state"));
 
         }
+    public void checkButton(View v){
+
+        handler = new Handler(Looper.getMainLooper(),
+                new Handler.Callback() {
+                    @Override
+                    public boolean handleMessage(@NonNull Message message) {
+                        int radioButtonId = status.getCheckedRadioButtonId();
+                        state = (RadioButton) findViewById(radioButtonId);
+                        Complain complain = comp.copyOfBuilder()
+                                .state(state.getTransitionName().toString()).build();
+                        Amplify.API.mutate(
+                                ModelMutation.update(complain),
+
+                                response -> Log.i("MyAmplifyApp", "Todo with id: " + complain.getState()),
+                                error -> Log.e("MyAmplifyApp", "Create failed", error)
+                        );
+                        return false;
+                    }
+                });
+
+        Amplify.API.query(
+                ModelQuery.list(Complain.class, Complain.ID.contains(getIntent().getStringExtra("idComp"))),
+                response -> {
+                    for (Complain complain : response.getData()) {
+                        comp = complain;
+
+                        Log.i("MyAmplifyApp", complain.getState());
+                    }
+                    handler.sendEmptyMessage(1);
+                },
+                error -> Log.e("MyAmplifyApp", "Query failure", error)
+        );
+
+
+//                (getIntent().getStringExtra("idComp"),getIntent().getStringExtra("des"),getIntent().getStringExtra("categoryName"),getIntent().getStringExtra("username"),getIntent().getStringExtra("cityName"),state.getTransitionName().toString(),getIntent().getStringExtra("file"),getIntent().getStringExtra("lon"),getIntent().getStringExtra("lat"));?
+
+
+    }
     }

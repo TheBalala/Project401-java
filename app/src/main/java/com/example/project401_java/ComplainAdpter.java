@@ -25,6 +25,7 @@ public class ComplainAdpter extends RecyclerView.Adapter<ComplainAdpter.Complain
         this.allComplain = allTask;
     }
 
+
     @NonNull
     @Override
     public ComplainViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -50,9 +51,17 @@ public class ComplainAdpter extends RecyclerView.Adapter<ComplainAdpter.Complain
                 intent.putExtra("file",holder.complain.getFileUrl());
                 intent.putExtra("state",holder.complain.getState());
                 intent.putExtra("username",holder.complain.getUsername());
+                intent.putExtra("categoryName",holder.complain.getCategoryName());
+                intent.putExtra("cityName",holder.complain.getCityName());
+
+
 
                 intent.putExtra("lat",holder.complain.getLat());
                 intent.putExtra("lon",holder.complain.getLon());
+                intent.putExtra("idComp",holder.complain.getId());
+
+
+
 
                 view.getContext().startActivity(intent);
 

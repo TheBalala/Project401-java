@@ -33,6 +33,7 @@ public class Complain extends AppCompatActivity {
     public static final int REQUEST_FOR_FILE = 999;
     String fileName;
     InputStream inputStream;
+    Button location;
     private double lat;
     private double lon;
     private FusedLocationProviderClient fusedLocationClient;
@@ -47,27 +48,36 @@ com.amplifyframework.datastore.generated.model.Complain complain;
         String category = sharedPreferences.getString("category","category");
         String username = sharedPreferences.getString("username","username");
 
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 1212);
+        location = findViewById(R.id.putLocation);
 
+        location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loc();
+            }
+        });
 
-        }else {
-            fusedLocationClient.getLastLocation()
-                    .addOnSuccessListener(this, new OnSuccessListener<Location>() {
-                        @Override
-                        public void onSuccess(Location location) {
-                            if (location != null) {
-                                lat = location.getLatitude();
-                                lon = location.getLongitude();
-                                Toast.makeText(Complain.this, "Location: " + location, Toast.LENGTH_SHORT).show();
-                            } else {
-                                Toast.makeText(Complain.this, "null", Toast.LENGTH_SHORT).show();
-                            }
-
-                        }
-                    });
-        }
+//        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+//            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 1212);
+//
+//
+//        }else {
+//            fusedLocationClient.getLastLocation()
+//                    .addOnSuccessListener(this, new OnSuccessListener<Location>() {
+//                        @Override
+//                        public void onSuccess(Location location) {
+//                            if (location != null) {
+//                                lat = location.getLatitude();
+//                                lon = location.getLongitude();
+//                                Toast.makeText(Complain.this, "Location: " + location, Toast.LENGTH_SHORT).show();
+//                            } else {
+//                                Toast.makeText(Complain.this, "null", Toast.LENGTH_SHORT).show();
+//                            }
+//
+//                        }
+//                    });
+//        }
 
 
         Button button = findViewById(R.id.saveComplain);
@@ -129,5 +139,28 @@ com.amplifyframework.datastore.generated.model.Complain complain;
         chooseFile.setType("*/*");
         chooseFile = Intent.createChooser(chooseFile, "Choose a File");
         startActivityForResult(chooseFile, REQUEST_FOR_FILE);
+    }
+    public void loc (){
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 1212);
+
+
+        }else {
+            fusedLocationClient.getLastLocation()
+                    .addOnSuccessListener(this, new OnSuccessListener<Location>() {
+                        @Override
+                        public void onSuccess(Location location) {
+                            if (location != null) {
+                                lat = location.getLatitude();
+                                lon = location.getLongitude();
+                                Toast.makeText(Complain.this, "Location: " + location, Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(Complain.this, "null", Toast.LENGTH_SHORT).show();
+                            }
+
+                        }
+                    });
+        }
     }
 }

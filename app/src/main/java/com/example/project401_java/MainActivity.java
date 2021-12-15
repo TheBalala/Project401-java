@@ -52,15 +52,12 @@ User user;
                 result -> Log.i("AmplifyQuickstart", result.toString()),
                 error -> Log.e("AmplifyQuickstart", error.toString())
         );
+        if(!AWSMobileClient.getInstance().isSignedIn()){
+            Intent intent = new Intent(MainActivity.this, Login.class);
+            startActivity(intent);
+        }
 
-        Button login = (Button) findViewById(R.id.login);
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,Login.class);
-               startActivity(intent);
-            }
-        });
+
 
         Button city = (Button) findViewById(R.id.city);
         city.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +90,8 @@ User user;
                         () -> Log.i("AuthQuickstart", "Signed out globally"),
                         error -> Log.e("AuthQuickstart", error.toString())
                 );
+                Intent intent = new Intent(MainActivity.this,Login.class);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

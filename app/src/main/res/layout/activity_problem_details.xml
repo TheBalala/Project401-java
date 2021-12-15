@@ -104,6 +104,32 @@
                     android:text="Done" />
             </LinearLayout>
 
+            <RadioGroup
+                android:id="@+id/group"
+                android:layout_width="wrap_content"
+                android:layout_height="128dp">
+
+
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:transitionName="In Progress"
+                    android:layout_width="120dp"
+                    android:layout_height="64dp"
+                    android:onClick="checkButton"
+                    android:text="In Progress" />
+
+                <RadioButton
+                    android:transitionName="Finish"
+
+                    android:id="@+id/radioButton3"
+                    android:layout_width="120dp"
+                    android:layout_height="64dp"
+                    android:onClick="checkButton"
+                    android:text="Finish" />
+
+            </RadioGroup>
+
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
