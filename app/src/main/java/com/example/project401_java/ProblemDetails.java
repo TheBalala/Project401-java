@@ -4,12 +4,30 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
+
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.amplifyframework.core.Amplify;
+
+import java.io.File;
+import java.util.Locale;
+
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,6 +41,12 @@ public class ProblemDetails extends AppCompatActivity {
     private ImageView img;
     private String key;
 
+
+public class ProblemDetails extends AppCompatActivity {
+    private Handler handleImageView;
+    private File downloadedImage;
+    private ImageView img;
+    private String key;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +64,20 @@ public class ProblemDetails extends AppCompatActivity {
         });
         getFileFromApi();
 
+        Double altitude=getIntent().getDoubleExtra("lat",0);
+        Double longitude = getIntent().getDoubleExtra("lon",0);
+        Log.i("ahmad",altitude+"long");
+        Log.i("ahmad",longitude+"lat");
+        Button loc=findViewById(R.id.lo);
+        loc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?q=loc:%f,%f", altitude,longitude);
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                startActivity(intent);
+            }
+        });
+
     }
     private void setTaskImage() {
         BitmapFactory.Options options = new BitmapFactory.Options();
@@ -51,6 +89,19 @@ public class ProblemDetails extends AppCompatActivity {
     @SuppressLint("LongLogTag")
     private void getFileFromApi() {
         Amplify.Storage.downloadFile(
+
+                key ,
+                new File(getApplicationContext().getFilesDir() + "test.jpg"),
+                success -> {
+                    Log.i("getFileFromApi: successfully   ----> " , success.toString());
+                    downloadedImage = success.getFile();
+                    handleImageView.sendEmptyMessage(1);
+                },
+                failure -> Log.i("getFileFromApi:  failed  ---> " , failure.toString())
+        );
+    }
+
+
                 key,
                 new File(getApplicationContext().getFilesDir() + "test.jpg"),
                 success -> {
@@ -61,6 +112,7 @@ public class ProblemDetails extends AppCompatActivity {
                 failure -> Log.i("getFileFromApi:  failed  ---> ", failure.toString())
         );
     }
+
 
 
     public void getTask() {

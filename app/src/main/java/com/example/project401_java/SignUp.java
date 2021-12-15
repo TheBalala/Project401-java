@@ -37,8 +37,6 @@ EditText password;
                         password.getText().toString());
             }
         });
-
-
     }
     void signUp(String username, String email, String password) {
         Amplify.Auth.signUp(
@@ -48,6 +46,7 @@ EditText password;
                         .userAttribute(AuthUserAttributeKey.email(), email)
 
                         .build(),
+
                 success -> {
                     Log.i("signup", "signUp successful: " + success.toString());
 

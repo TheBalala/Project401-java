@@ -6,7 +6,7 @@ type User @model {
   auth: String
   Complain: [Complain] @connection(keyName: "byComplain", fields: ["username"])
 }
-type Complain @model @key(name: "byComplain", fields: ["categoryName","username","cityName","Description","State","fileUrl"]){
+type Complain @model @key(name: "byComplain", fields: ["categoryName","username","cityName","Description","State","fileUrl","lon","lat"]){
   id: ID!
   Description: String!
   categoryName: String
@@ -14,6 +14,8 @@ type Complain @model @key(name: "byComplain", fields: ["categoryName","username"
   cityName: String
   State: String!
   fileUrl: String
+  lon:Float
+  lat:Float
 }
 type City @model  {
   id: ID!

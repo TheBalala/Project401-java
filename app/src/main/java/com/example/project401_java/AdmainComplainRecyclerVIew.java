@@ -89,7 +89,7 @@ public class AdmainComplainRecyclerVIew extends AppCompatActivity {
 
     }
     public void buildRecycl (){
-        recyclerView = findViewById(R.id.allTaskRecyclerView);
+        recyclerView = findViewById(R.id.allTaskRecyclerView1);
         recyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(AdmainComplainRecyclerVIew.this);
         mAdapter = new ComplainAdpter(listComplain);

@@ -7,7 +7,7 @@
     tools:context=".AdmainComplainRecyclerVIew">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/allTaskRecyclerView"
+        android:id="@+id/allTaskRecyclerView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -26,7 +26,7 @@
         android:layout_marginEnd="183dp"
         android:layout_marginBottom="94dp"
         android:text="normal"
-        app:layout_constraintBottom_toTopOf="@+id/allTaskRecyclerView"
+        app:layout_constraintBottom_toTopOf="@+id/allTaskRecyclerView1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

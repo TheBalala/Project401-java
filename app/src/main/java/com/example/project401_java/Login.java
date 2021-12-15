@@ -11,7 +11,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -39,9 +38,9 @@ Handler handler;
         setTitle("Login");
 
 
-        login = (Button) findViewById(R.id.save);
+        login = (Button) findViewById(R.id.loged);
         signup = (Button) findViewById(R.id.signup_button);
-        userName = (EditText) findViewById(R.id.username);
+        userName = (EditText) findViewById(R.id.hy);
         password = (EditText) findViewById(R.id.password);
 
         login.setOnClickListener(view -> {
@@ -107,8 +106,10 @@ Handler handler;
     private void configureAmplify() {
         // configure Amplify plugins
         try {
-            Amplify.addPlugin(new AWSApiPlugin());
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
+
+            Amplify.addPlugin(new AWSApiPlugin());
+
             Amplify.addPlugin(new AWSS3StoragePlugin());
             Amplify.configure(getApplicationContext());
         } catch (AmplifyException exception) {
