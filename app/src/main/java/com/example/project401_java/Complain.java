@@ -69,7 +69,6 @@ com.amplifyframework.datastore.generated.model.Complain complain;
                     });
         }
 
-        });
 
         Button button = findViewById(R.id.saveComplain);
         button.setOnClickListener(new View.OnClickListener() {

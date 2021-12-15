@@ -61,14 +61,7 @@ User user;
                startActivity(intent);
             }
         });
-        Button logind = (Button) findViewById(R.id.button2);
-        logind.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,SignUp.class);
-                startActivity(intent);
-            }
-        });
+
         Button city = (Button) findViewById(R.id.city);
         city.setOnClickListener(new View.OnClickListener() {
             @Override

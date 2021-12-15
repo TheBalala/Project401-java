@@ -167,8 +167,18 @@ public final class Complain implements Model {
    * in a relationship.
    * @param id the id of the existing item this instance will represent
    * @return an instance of this model with only ID populated
+   * @throws IllegalArgumentException Checks that ID is in the proper format
    */
   public static Complain justId(String id) {
+    try {
+      UUID.fromString(id); // Check that ID is in the UUID format - if not an exception is thrown
+    } catch (Exception exception) {
+      throw new IllegalArgumentException(
+              "Model IDs must be unique in the format of UUID. This method is for creating instances " +
+              "of an existing object with only its ID field for sending as a mutation parameter. When " +
+              "creating a new object, use the standard builder method and leave the ID field blank."
+      );
+    }
     return new Complain(
       id,
       null,
@@ -205,7 +215,7 @@ public final class Complain implements Model {
 
   public interface BuildStep {
     Complain build();
-    BuildStep id(String id);
+    BuildStep id(String id) throws IllegalArgumentException;
     BuildStep categoryName(String categoryName);
     BuildStep username(String username);
     BuildStep cityName(String cityName);
@@ -292,11 +302,22 @@ public final class Complain implements Model {
     }
     
     /** 
+     * WARNING: Do not set ID when creating a new object. Leave this blank and one will be auto generated for you.
+     * This should only be set when referring to an already existing object.
      * @param id id
      * @return Current Builder instance, for fluent method chaining
+     * @throws IllegalArgumentException Checks that ID is in the proper format
      */
-    public BuildStep id(String id) {
+    public BuildStep id(String id) throws IllegalArgumentException {
         this.id = id;
+        
+        try {
+            UUID.fromString(id); // Check that ID is in the UUID format - if not an exception is thrown
+        } catch (Exception exception) {
+          throw new IllegalArgumentException("Model IDs must be unique in the format of UUID.",
+                    exception);
+        }
+        
         return this;
     }
   }
