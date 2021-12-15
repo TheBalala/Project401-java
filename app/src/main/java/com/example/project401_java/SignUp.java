@@ -44,6 +44,7 @@ EditText password;
                 password,
                 AuthSignUpOptions.builder()
                         .userAttribute(AuthUserAttributeKey.email(), email)
+
                         .build(),
 
                 success -> {

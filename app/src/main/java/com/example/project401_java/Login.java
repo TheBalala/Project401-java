@@ -60,7 +60,7 @@ Handler handler;
                 new Handler.Callback() {
                     @Override
                     public boolean handleMessage(@NonNull Message message) {
-                        if(userForAuth.getAuth().equals("ADMIN") ){
+                        if(username1.equals("admin")){
                             SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(Login.this);
                             sharedPreferences.edit().putString("username",username1).apply();
 
@@ -91,9 +91,10 @@ Handler handler;
                             response -> {
                                 for (User user : response.getData()) {
                                     userForAuth = user;
+                                    username1 = userName.getText().toString();
+
                                     Log.i("MyAmplifyApp", user.getUsername());
                                 }
-                                username1 = userName.getText().toString();
                                 handler.sendEmptyMessage(1);
 
                             },
@@ -106,7 +107,9 @@ Handler handler;
         // configure Amplify plugins
         try {
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
+
             Amplify.addPlugin(new AWSApiPlugin());
+
             Amplify.addPlugin(new AWSS3StoragePlugin());
             Amplify.configure(getApplicationContext());
         } catch (AmplifyException exception) {

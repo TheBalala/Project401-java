@@ -50,8 +50,10 @@ public class ComplainAdpter extends RecyclerView.Adapter<ComplainAdpter.Complain
                 intent.putExtra("file",holder.complain.getFileUrl());
                 intent.putExtra("state",holder.complain.getState());
                 intent.putExtra("username",holder.complain.getUsername());
+
                 intent.putExtra("lat",holder.complain.getLat());
                 intent.putExtra("lon",holder.complain.getLon());
+
                 view.getContext().startActivity(intent);
 
             }

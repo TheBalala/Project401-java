@@ -51,6 +51,7 @@ com.amplifyframework.datastore.generated.model.Complain complain;
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 1212);
 
+
         }else {
             fusedLocationClient.getLastLocation()
                     .addOnSuccessListener(this, new OnSuccessListener<Location>() {
@@ -67,6 +68,8 @@ com.amplifyframework.datastore.generated.model.Complain complain;
                         }
                     });
         }
+
+        });
 
         Button button = findViewById(R.id.saveComplain);
         button.setOnClickListener(new View.OnClickListener() {
