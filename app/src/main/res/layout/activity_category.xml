@@ -21,7 +21,6 @@
             <RelativeLayout
 
                 android:id="@+id/electric"
-                android:transitionName="electric"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_alignParentStart="true"
@@ -32,7 +31,8 @@
                 android:layout_marginTop="18dp"
                 android:layout_marginEnd="21dp"
                 android:layout_marginBottom="22dp"
-                android:background="@drawable/bg2">
+                android:background="@drawable/bg2"
+                android:transitionName="electric">
 
                 <Button
                     android:layout_width="wrap_content"
